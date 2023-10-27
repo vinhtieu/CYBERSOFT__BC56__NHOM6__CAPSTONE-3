@@ -2,7 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 export default function HomePage() {
   return (
-    <div className="w-full space-y-4 bg-blue-300 aspect-video">
+    <div className="w-full aspect-video">
       <ReactPlayer
         playing={true}
         volume={0.5}

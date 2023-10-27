@@ -1,0 +1,9 @@
+.solid-background {
+  background: black;
+  transition: background 0.4s ease;
+}
+
+.gradient-background {
+  background: linear-gradient(to bottom, black, transparent);
+  transition: background 0.4s ease;
+}

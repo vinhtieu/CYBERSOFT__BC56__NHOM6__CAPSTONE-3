@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigateTo = useNavigate();
 
   const handleScroll = () => {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 80) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -22,8 +23,8 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 w-full h-24 p-4 transition-opacity duration-300 bg-red-400
-          ${isScrolled ? "bg-opacity-50" : "bg-opacity-0"}`}>
+      className={`fixed top-0 left-0 z-50 w-full h-24 p-4  bg-gradient-to-b from-black to-transparent
+          ${isScrolled ? "solid-background" : "gradient-background"}`}>
       <div className="container flex flex-row items-center justify-between h-full mx-auto">
         <a
           className="text-5xl text-[#ad3639] cursor-pointer"
