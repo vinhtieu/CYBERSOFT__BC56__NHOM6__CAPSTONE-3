@@ -1,5 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
+import { Carousel, MovieList } from "../../components";
 export default function HomePage() {
   return (
     <div className="w-full aspect-video">

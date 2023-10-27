@@ -39,19 +39,19 @@ export default function Header() {
           </figure>
         </a>
         <nav className="space-x-8 text-2xl text-white">
-          <a href="" className="p-2 hover:text-gray-500">
+          <a href="" className="p-2 hover:text-[#ae1f22]">
             Showtimes
           </a>
-          <a href="" className="p-2 hover:text-gray-500">
+          <a href="" className="p-2 hover:text-[#ae1f22]">
             Theater
           </a>
-          <a href="" className="p-2 hover:text-gray-500">
+          <a href="" className="p-2 hover:text-[#ae1f22]">
             Food & Drink
           </a>
         </nav>
 
         <a
-          className="text-2xl text-white hover:text-gray-500"
+          className="text-2xl text-white hover:text-[#ae1f22]"
           href=""
           onClick={() => {
             navigateTo("/login");
