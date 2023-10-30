@@ -1,45 +1,55 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Slider from "react-slick";
+import { useDispatch, useSelector } from "react-redux";
+import { movieService } from "../../services/services";
+import { setList } from "../../lib/redux/movieListSlice";
+import Card from "../card";
+import NextArrow from "./nextArrow";
+import PrevArrow from "./prevArrow";
 import "./style.css";
-import "./theme.css";
 
-export default function Carousel({ children }) {
+const Carousel = ({ className }) => {
+  const movieList = useSelector((state) => state.movieList.movies);
+  const dispatch = useDispatch();
+  const slickRef = useRef(0);
+
+  useEffect(() => {
+    movieService
+      .getList()
+      .then((res) => {
+        dispatch(setList(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const settings = {
-    className: "slider variable-width",
-    infinite: true,
-    speed: 1000,
+    prevArrow: <PrevArrow ref={slickRef} />,
+    nextArrow: <NextArrow ref={slickRef} />,
     // autoplay: true,
-    // autoplaySpeed: 1000,
-    slidesToShow: 3,
+    autoplaySpeed: 2000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 7,
     slidesToScroll: 1,
-    pauseOnHover: true,
-    cssEase: "linear",
-    //   responsive: [
-    //     {
-    //       breakpoint: 1024,
-    //       settings: {
-    //         slidesToShow: 3,
-    //         slidesToScroll: 3,
-    //         infinite: true,
-    //         dots: true
-    //       }
-    //     },
-    //     {
-    //       breakpoint: 600,
-    //       settings: {
-    //         slidesToShow: 2,
-    //         slidesToScroll: 2,
-    //         initialSlide: 2
-    //       }
-    //     },
-    //     {
-    //       breakpoint: 480,
-    //       settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1
-    //       }
-    //     }
-    //   ]
+    arrows: true,
+    vertical: false,
+    centerMode: true,
+    variableWidth: true,
   };
-  return <Slider {...settings}>{children}</Slider>;
-}
+
+  return (
+    <div className={`relative ${className}`}>
+      <div className="w-full ml-auto mr-auto">
+        <Slider {...settings} ref={slickRef} className="group ">
+          {movieList.map((movie, index) => {
+            return <Card key={index} imgSrc={movie.poster}></Card>;
+          })}
+        </Slider>
+      </div>
+    </div>
+  );
+};
+
+export default Carousel;

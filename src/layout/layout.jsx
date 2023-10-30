@@ -3,7 +3,7 @@ import { Header } from "../components";
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="">
       <Header />
       {children}
     </div>

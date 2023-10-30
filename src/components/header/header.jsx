@@ -25,9 +25,9 @@ export default function Header() {
     <div
       className={`fixed top-0 left-0 z-50 w-full h-24 p-4  bg-gradient-to-b from-black to-transparent
           ${isScrolled ? "solid-background" : "gradient-background"}`}>
-      <div className="container flex flex-row items-center justify-between h-full mx-auto">
+      <div className="container flex flex-row items-center justify-between h-full mx-auto text-xl">
         <a
-          className="text-5xl text-[#ad3639] cursor-pointer"
+          className=" text-[#ad3639] cursor-pointer"
           style={{
             fontFamily: "Archivo Black , sans-serif",
           }}
@@ -35,10 +35,10 @@ export default function Header() {
             navigateTo("/");
           }}>
           <figure className="aspect-auto w-[75px]">
-            <img src="src\assets\lux_final-logo.png" alt="" />
+            <img src="src\assets\img\lux_final-logo.png" alt="" />
           </figure>
         </a>
-        <nav className="space-x-8 text-2xl text-white">
+        <nav className="space-x-8  text-white">
           <a href="" className="p-2 hover:text-[#ae1f22]">
             Showtimes
           </a>
@@ -51,7 +51,7 @@ export default function Header() {
         </nav>
 
         <a
-          className="text-2xl text-white hover:text-[#ae1f22]"
+          className=" text-white hover:text-[#ae1f22]"
           href=""
           onClick={() => {
             navigateTo("/login");

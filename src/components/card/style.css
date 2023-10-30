@@ -1,0 +1,10 @@
+.card {
+  @apply relative overflow-hidden cursor-pointer;
+}
+
+.detail {
+  @apply flex flex-col gap-10 items-center justify-center absolute top-0 left-0 w-full h-full translate-y-full transition-all duration-[400ms] delay-500 ease-linear bg-black bg-opacity-50 z-50;
+}
+.card:hover .detail {
+  @apply translate-y-0;
+}

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+import Card from "../card";
 import { movieService } from "../../services/services";
 import { setList } from "../../lib/redux/movieListSlice";
+
 import { useDispatch, useSelector } from "react-redux";
 export default function MovieList() {
   const movieList = useSelector((state) => state.movieList.movies);
@@ -20,11 +22,7 @@ export default function MovieList() {
   return (
     <>
       {movieList.map((movie, index) => {
-        return (
-          <div key={index} className="w-8 h-16 rounded-md">
-            {movie.poster}
-          </div>
-        );
+        return <Card key={index} imgSrc={movie.poster} />;
       })}
     </>
   );
