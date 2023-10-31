@@ -2,9 +2,9 @@ import { movieApi } from "./movieApi";
 
 export const movieService = {
   getNowPlayingMovies: () => {
-    return movieApi.get("/movies");
+    return movieApi.get("/NowPlayingMovies");
   },
   getComingSoonMovies: () => {
-    return movieApi.get("/ComingSoonMovie");
+    return movieApi.get("/ComingSoonMovies");
   },
 };
