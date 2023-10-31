@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-export default function Card({ imgSrc }) {
+export default function NowPlayingCard({ imgSrc }) {
   return (
     <div className="card ">
       <figure className="h-[400px] w-[350px] px-8 my-6 z-40">
