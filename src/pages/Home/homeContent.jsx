@@ -12,9 +12,9 @@ const HomeContent = () => {
   );
 
   return (
-    <>
+    <div>
       <Banner />
-      <div className="px-16 mb-8 text-white text-[1.8vw] leading-[1.5vw] font-bold z-50 relative">
+      <div className=" px-16 mb-8 text-white text-[1.8vw] leading-[1.5vw] font-bold z-50 relative">
         Now Playing
       </div>
       <Carousel className="mb-36">
@@ -34,7 +34,7 @@ const HomeContent = () => {
           );
         })}
       </Carousel>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,35 @@
+/* == Appear Transition == */
+
+.component-appear {
+  opacity: 0;
+}
+.component-appear-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+/* == Enter Transition == */
+
+.component-enter {
+  opacity: 0;
+}
+.component-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.component-enter-done {
+  opacity: 1;
+}
+
+/* == Exit Transition == */
+
+.component-exit {
+  opacity: 1;
+}
+.component-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+.component-exit-done {
+  opacity: 0;
+}

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-export default function LoadingScreen() {
+const LoadingScreen = () => {
   return (
-    <div className="absolute top-0 left-0 w-full h-full bg-black transition-all z-[60] ">
+    <div className={`absolute top-0 left-0 w-full h-full bg-black z-[60]`}>
       <img
         className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 scale-[2.4]"
         src="src\assets\img\spinner.svg"
@@ -15,4 +15,6 @@ export default function LoadingScreen() {
       />
     </div>
   );
-}
+};
+
+export default LoadingScreen;
