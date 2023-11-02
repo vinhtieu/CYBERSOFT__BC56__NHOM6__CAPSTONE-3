@@ -12,3 +12,28 @@ body {
   box-sizing: border-box;
   background: black;
 }
+
+.slick-next:before,
+.slick-prev:before {
+  content: "";
+}
+.slick-next,
+.slick-prev {
+  height: calc(100% - 3rem);
+  width: 5%;
+}
+
+.slick-next {
+  right: 0;
+}
+.slick-prev {
+  left: 0;
+}
+
+.slick-track {
+  display: flex;
+}
+
+.slick-list {
+  overflow-x: hidden;
+}

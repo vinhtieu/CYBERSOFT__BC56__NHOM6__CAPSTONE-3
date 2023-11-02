@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { movieService } from "../../services/services";
-import {
-  setComingSoonMovies,
-  setNowPlayingMovies,
-} from "../../lib/redux/movieListSlice";
+import { movieListSlice } from "../../lib/redux";
 import { LoadingScreen } from "../../components";
 import HomeContent from "./homeContent";
 import { CSSTransition } from "react-transition-group";
@@ -13,6 +10,7 @@ import "./style.css";
 export default function HomePage() {
   const [showLoading, setShowLoading] = useState(true);
   const [showHomeContent, setShowHomeContent] = useState(false);
+  const { setComingSoonMovies, setNowPlayingMovies } = movieListSlice.actions;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,8 +28,14 @@ export default function HomePage() {
       .finally(() => {
         setTimeout(() => {
           setShowLoading(false);
-        }, 500);
+        }, 1000);
       });
+
+    // window.addEventListener("load", setShowLoading(false));
+
+    // return () => {
+    //   window.removeEventListener("load", setShowLoading(false));
+    // };
   }, []);
 
   return (
