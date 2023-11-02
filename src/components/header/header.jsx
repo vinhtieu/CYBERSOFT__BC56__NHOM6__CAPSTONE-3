@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigateTo = useNavigate();
+  const headerRef = useRef(0);
 
   const handleScroll = () => {
-    if (window.scrollY > 80) {
+    const component = headerRef.current.getBoundingClientRect();
+    if (window.scrollY > component.height) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -23,7 +25,8 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 w-full h-24 p-4  bg-gradient-to-b from-black to-transparent
+      ref={headerRef}
+      className={`fixed top-0 left-0 z-50 w-full h-24 p-4
           ${isScrolled ? "solid-background" : "gradient-background"}`}>
       <div className="container flex flex-row items-center justify-between h-full mx-auto text-xl">
         <a

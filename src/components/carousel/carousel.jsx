@@ -15,16 +15,16 @@ const Carousel = ({ className, children }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 7,
-    slidesToScroll: 1,
+    slidesToScroll: 5,
     arrows: true,
     vertical: false,
-    centerMode: true,
-    variableWidth: true,
+    // centerMode: true,
+    // variableWidth: true,
   };
 
   return (
     <div className={`relative ${className}`}>
-      <div className="w-full ml-auto mr-auto">
+      <div className="w-[90%] ml-auto mr-auto">
         <Slider {...settings} ref={slickRef} className="group ">
           {children}
         </Slider>
