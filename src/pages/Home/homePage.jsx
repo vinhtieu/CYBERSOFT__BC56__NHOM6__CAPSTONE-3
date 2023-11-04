@@ -15,6 +15,7 @@ export default function HomePage() {
 
   useEffect(() => {
     Promise.all([
+      // console.log("loading"),
       movieService.getNowPlayingMovies(),
       movieService.getComingSoonMovies(),
     ])
@@ -30,12 +31,6 @@ export default function HomePage() {
           setShowLoading(false);
         }, 1000);
       });
-
-    // window.addEventListener("load", setShowLoading(false));
-
-    // return () => {
-    //   window.removeEventListener("load", setShowLoading(false));
-    // };
   }, []);
 
   return (
@@ -44,8 +39,8 @@ export default function HomePage() {
         <CSSTransition
           in={showLoading}
           timeout={{
-            appear: 500,
-            enter: 500,
+            appear: 0,
+            enter: 0,
             exit: 500,
           }}
           classNames="component"
@@ -56,7 +51,9 @@ export default function HomePage() {
           <LoadingScreen />
         </CSSTransition>
       }
-      {
+      <HomeContent />
+
+      {/* {
         <CSSTransition
           in={showHomeContent}
           timeout={{
@@ -68,9 +65,8 @@ export default function HomePage() {
           unmountOnExit
           appear={true}
           onEnter={() => setShowLoading(false)}>
-          <HomeContent />
         </CSSTransition>
-      }
+      } */}
     </>
   );
 }

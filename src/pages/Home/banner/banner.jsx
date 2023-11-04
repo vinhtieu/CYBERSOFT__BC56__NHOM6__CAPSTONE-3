@@ -1,110 +1,52 @@
-import React, { forwardRef, useRef } from "react";
-import Slider from "react-slick";
-import { useDispatch, useSelector } from "react-redux";
-import { videoPlayerSlice } from "../../../lib/redux";
-import { Button } from "../../../components";
+import { useMediaQuery } from "react-responsive";
+import BannerBigDesktop from "./bannerBigDesktop";
+import BannerDesktop from "./bannerDesktop";
+import BannerTabletLandscape from "./bannerTabletLandscape";
+import BannerTabletPortrait from "./bannerTabletPortrait";
+import BannerMobile from "./bannerMobile";
 
-const NextArrow = forwardRef((props, ref) => {
-  return (
-    <button
-      onClick={() => {
-        ref.current.slickNext();
-      }}
-      type="button"
-      className="absolute top-1/2 right-[1vw] block z-50 group">
-      <figure className="w-24 h-24 mr-auto ml-auto hidden group-hover:inline-block">
-        <img
-          src="src\assets\img\pngaaa.com-3944443.png"
-          alt=""
-          className="w-full h-full object-contain rotate-180"
-        />
-      </figure>
-    </button>
-  );
-});
+const BigDesktop = ({ children }) => {
+  const isBigDesktop = useMediaQuery({ minWidth: 1670 });
+  return isBigDesktop ? children : null;
+};
+const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 1280, maxWidth: 1670 });
+  return isDesktop ? children : null;
+};
 
-const PrevArrow = forwardRef((props, ref) => {
-  return (
-    <button
-      onClick={() => {
-        ref.current.slickPrev();
-      }}
-      type="button"
-      className="absolute top-1/2 left-[1vw] block z-50 group">
-      <figure className="w-24 h-24 mr-auto ml-auto hidden group-hover:inline-block">
-        <img
-          src="src\assets\img\pngaaa.com-3944443.png"
-          alt=""
-          className="w-full h-full object-contain "
-        />
-      </figure>
-    </button>
-  );
-});
+const TabletLandscape = ({ children }) => {
+  const isTabletLandscape = useMediaQuery({ minWidth: 940, maxWidth: 1280 });
+  return isTabletLandscape ? children : null;
+};
 
-export default function Banner() {
-  const slickRef = useRef(0);
-  const trendingMovieList = useSelector(
-    (state) => state.movieList.trendingMovies
-  );
-  const { openVideoPlayer, playVideo, setVideoURL } = videoPlayerSlice.actions;
-  const dispatch = useDispatch();
+const TabletPortrait = ({ children }) => {
+  const isTabletPortrait = useMediaQuery({ minWidth: 666, maxWidth: 940 });
+  return isTabletPortrait ? children : null;
+};
 
-  const settings = {
-    prevArrow: <PrevArrow ref={slickRef} />,
-    nextArrow: <NextArrow ref={slickRef} />,
-    // autoplay: true,
-    autoplaySpeed: 2000,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    vertical: false,
-  };
+const Mobile = ({ children }) => {
+  const isMobile = useMediaQuery({ maxWidth: 665.98 });
+  return isMobile ? children : null;
+};
 
-  500 - 90;
-  return (
-    <div className="w-full h-[77vh] ">
-      <Slider {...settings} ref={slickRef} className="group relative">
-        {trendingMovieList.map((movie, index) => {
-          return (
-            <div key={index} className="h-[1500px]">
-              <figure className="w-full h-full relative">
-                <img
-                  className="w-full h-full object-cover object-left "
-                  src={movie.poster}
-                  alt="Thumbnail"
-                />
-                <div className="absolute left-[5%] top-[40%] -translate-y-1/2 flex flex-col">
-                  <img
-                    src={movie.title}
-                    className=" w-[65rem] aspect-auto mb-6"
-                  />
-                  <span className="text-[1.5vw] text-white mb-10 opacity-90">
-                    Coming Soon | December 24
-                  </span>
-                  <button
-                    onClick={() => {
-                      dispatch(setVideoURL(movie.trailer));
-                      dispatch(openVideoPlayer());
-                      dispatch(playVideo());
-                    }}
-                    className="w-fit leading-10 px-14 py-4 bg-[#ae1f22] text-white text-xl rounded-md flex flex-row items-center gap-4 justify-start">
-                    <img
-                      className="w-14 h-14"
-                      src="src\assets\img\playIcon.svg"
-                      alt=""
-                    />
-                    Watch Trailer
-                  </button>
-                </div>
-                <div className="absolute bottom-0 left-0 w-full h-[20vh] bg-gradient-to-t from-black to-transparent"></div>
-              </figure>
-            </div>
-          );
-        })}
-      </Slider>
-    </div>
-  );
-}
+const Banner = () => (
+  <div>
+    <BigDesktop>
+      <BannerBigDesktop />
+    </BigDesktop>
+    <Desktop>
+      <BannerDesktop />
+    </Desktop>
+    <TabletLandscape>
+      <BannerTabletLandscape />
+    </TabletLandscape>
+    <TabletPortrait>
+      <BannerTabletPortrait />
+    </TabletPortrait>
+    <Mobile>
+      <BannerMobile />
+    </Mobile>
+  </div>
+);
+
+export default Banner;

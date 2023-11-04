@@ -5,7 +5,7 @@
 }
 .component-appear-active {
   opacity: 1;
-  transition: opacity 500ms;
+  transition: opacity 0ms;
 }
 
 /* == Enter Transition == */
@@ -15,7 +15,7 @@
 }
 .component-enter-active {
   opacity: 1;
-  transition: opacity 500ms;
+  transition: opacity 0ms;
 }
 .component-enter-done {
   opacity: 1;

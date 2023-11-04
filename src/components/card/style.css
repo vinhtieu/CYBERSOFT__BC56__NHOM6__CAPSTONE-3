@@ -3,7 +3,7 @@
 }
 
 .detail {
-  @apply flex flex-col gap-10 items-center justify-center absolute top-[1.5rem] left-[2rem] w-[calc(100%-4rem)]  h-[calc(100%-3rem)]  transition-all duration-[250ms] delay-[400ms] ease-linear bg-black bg-opacity-60 opacity-0 z-50;
+  @apply h-full w-full px-2 absolute top-0 left-0 opacity-0 transition-all duration-[250ms] delay-[400ms] ease-linear;
 }
 .card:hover .detail {
   @apply opacity-100;

@@ -26,9 +26,9 @@ export default function Header() {
   return (
     <div
       ref={headerRef}
-      className={`fixed top-0 left-0 z-50 w-full h-24 p-4
+      className={`fixed top-0 left-0 z-[100] h-12 md:h-16 lg:h-24 2xl:h-32 w-full py-7 px-2  transition-all duration-300
           ${isScrolled ? "solid-background" : "gradient-background"}`}>
-      <div className="container flex flex-row items-center justify-between h-full mx-auto text-xl">
+      <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto text-xl">
         <a
           className=" text-[#ad3639] cursor-pointer"
           style={{
@@ -37,29 +37,29 @@ export default function Header() {
           onClick={() => {
             navigateTo("/");
           }}>
-          <figure className="aspect-auto w-[75px]">
+          <figure className="w-[3.7vw]">
             <img src="src\assets\img\lux_final-logo.png" alt="" />
           </figure>
         </a>
-        <nav className="space-x-8  text-white">
+        <nav className="space-x-8  text-white text-xs lg:text-[14px] 2xl:text-[18px] transition-all duration-300">
           <a href="" className="p-2 hover:text-[#ae1f22]">
-            Showtimes
+            SHOWTIMES
           </a>
           <a href="" className="p-2 hover:text-[#ae1f22]">
-            Theater
+            THEATER
           </a>
           <a href="" className="p-2 hover:text-[#ae1f22]">
-            Food & Drink
+            FOOD & DRINK
           </a>
         </nav>
 
         <a
-          className=" text-white hover:text-[#ae1f22]"
+          className=" text-white hover:text-[#ae1f22] text-xs lg:text-[14px] 2xl:text-[18px] transition-all duration-300"
           href=""
           onClick={() => {
             navigateTo("/login");
           }}>
-          Login
+          LOGIN
         </a>
       </div>
     </div>

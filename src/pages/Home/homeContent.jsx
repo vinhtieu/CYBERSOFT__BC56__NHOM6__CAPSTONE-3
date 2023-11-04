@@ -22,7 +22,7 @@ const HomeContent = () => {
   return (
     <div>
       <Banner />
-      <div className="block w-[90%] ml-auto mr-auto px-8 mb-8 mt-24 text-white text-[1.8vw] leading-[1.5vw] font-bold z-50 relative">
+      <div className="block w-[90%] ml-auto px-2 mr-auto mb-4 min-[1280px]:mb-8 mt-10 sm:mt-12 lg:mt-16 xl:mt-20 2xl:mt-24 text-white text-base min-[1280px]:text-[2vw] leading-[1.5vw] font-bold z-50 relative">
         Now Playing
       </div>
       <Carousel className="mb-32">
@@ -32,7 +32,7 @@ const HomeContent = () => {
           );
         })}
       </Carousel>
-      <div className="block w-[90%] ml-auto mr-auto px-8 mb-8 text-white text-[1.8vw] leading-[1.5vw] font-bold z-50 relative">
+      <div className="block w-[90%] ml-auto px-2 mr-auto mb-4 min-[1280px]:mb-8 text-white text-base min-[1280px]:text-[2vw] leading-[1.5vw] font-bold z-50 relative">
         Coming Soon
       </div>
       <Carousel className=" mb-32">

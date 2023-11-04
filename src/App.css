@@ -24,10 +24,10 @@ body {
 }
 
 .slick-next {
-  right: 0;
+  right: 1vw;
 }
 .slick-prev {
-  left: 0;
+  left: 1vw;
 }
 
 .slick-track {
