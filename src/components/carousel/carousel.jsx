@@ -9,11 +9,11 @@ const PrevArrow = forwardRef((props, ref) => {
       }}
       type="button"
       className="slick-prev absolute top-[1.5rem] left-[1vw] z-50 group block max-[1000px]:hidden ">
-      <figure className="w-16 h-16 mr-auto ml-auto hidden group-hover:inline-block absolute top-1/2 left-0 -translate-y-1/2">
+      <figure className="absolute left-0 hidden w-16 h-16 ml-auto mr-auto -translate-y-1/2 group-hover:inline-block top-1/2">
         <img
           src="src\assets\img\pngaaa.com-3944443.png"
           alt=""
-          className="w-full h-full object-contain "
+          className="object-contain w-full h-full "
         />
       </figure>
     </button>
@@ -28,11 +28,11 @@ const NextArrow = forwardRef((props, ref) => {
       }}
       type="button"
       className="slick-next  absolute top-[1.5rem] right-[1vw] z-50 group block max-[1000px]:hidden">
-      <figure className="w-16 h-16 mr-auto ml-auto hidden group-hover:inline-block absolute top-1/2 right-0 -translate-y-1/2">
+      <figure className="absolute right-0 hidden w-16 h-16 ml-auto mr-auto -translate-y-1/2 group-hover:inline-block top-1/2">
         <img
           src="src\assets\img\pngaaa.com-3944443.png"
           alt=""
-          className="w-full h-full object-contain rotate-180"
+          className="object-contain w-full h-full rotate-180"
         />
       </figure>
     </button>

@@ -3,45 +3,7 @@ import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import { videoPlayerSlice } from "../../../lib/redux";
 
-// const NextArrow = forwardRef((props, ref) => {
-//   return (
-//     <button
-//       onClick={() => {
-//         ref.current.slickNext();
-//       }}
-//       type="button"
-//       className=" absolute top-[55%] right-[1vw] block z-50 group max-[1000px]:hidden">
-//       <figure className="w-24 h-24 mr-auto ml-auto hidden group-hover:inline-block">
-//         <img
-//           src="src\assets\img\pngaaa.com-3944443.png"
-//           alt=""
-//           className="w-full h-full object-contain rotate-180"
-//         />
-//       </figure>
-//     </button>
-//   );
-// });
-
-// const PrevArrow = forwardRef((props, ref) => {
-//   return (
-//     <button
-//       onClick={() => {
-//         ref.current.slickPrev();
-//       }}
-//       type="button"
-//       className=" absolute top-[55%] left-[1vw] block z-50 group max-[1000px]:hidden">
-//       <figure className="w-24 h-24 mr-auto ml-auto hidden group-hover:inline-block">
-//         <img
-//           src="src\assets\img\pngaaa.com-3944443.png"
-//           alt=""
-//           className="w-full h-full object-contain "
-//         />
-//       </figure>
-//     </button>
-//   );
-// });
-
-export default function BannerTabletLandscape() {
+export default function TabletLandscapeBanner() {
   const slickRef = useRef(0);
   const trendingMovieList = useSelector(
     (state) => state.movieList.trendingMovies
@@ -50,7 +12,7 @@ export default function BannerTabletLandscape() {
   const dispatch = useDispatch();
 
   const settings = {
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     infinite: true,
@@ -59,53 +21,29 @@ export default function BannerTabletLandscape() {
     slidesToScroll: 1,
     arrows: false,
     vertical: false,
-    // responsive: [
-    //   {
-    //     breakpoint: 1280,
-    //     settings: {
-    //       autoplay: true,
-    //       arrows: false,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 940,
-    //     settings: {
-    //       autoplay: true,
-    //       arrows: false,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 666,
-    //     settings: {
-    //       autoplay: true,
-    //       arrows: false,
-    //     },
-    //   },
-    // ],
   };
 
-  500 - 90;
   return (
     <div className="pb-[38%] mb-[20px] select-none relative">
-      <div className="absolute top-0 left-0 right-0 bottom-0">
+      <div className="absolute top-0 bottom-0 left-0 right-0">
         <Slider {...settings} ref={slickRef} className="group">
           {trendingMovieList.map((movie, index) => {
             return (
               <div key={index} className="h-[55vw]  w-full z-50 text-white">
-                <div className="w-full h-full relative">
+                <div className="relative w-full h-full">
                   <figure className="w-full h-full">
                     <img
-                      className="w-full h-full object-cover object-left "
+                      className="object-cover object-left w-full h-full "
                       src={movie.poster}
                       alt="Thumbnail"
                     />
                   </figure>
-                  <div className="absolute left-[5%] top-[40%] px-2 -translate-y-1/2 flex flex-col">
+                  <div className="absolute left-[5%] top-[42%] px-2 -translate-y-1/2 flex flex-col">
                     <figure className="w-[36vw]  mb-4">
-                      <img src={movie.title} className=" w-full aspect-auto" />
+                      <img src={movie.title} className="w-full aspect-auto" />
                     </figure>
 
-                    <span className="text-[1.2rem] font-normal">
+                    <span className="text-base font-normal">
                       Coming Soon | December 24
                     </span>
                     <button

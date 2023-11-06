@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function BannerMobile() {
+export default function MobileBanner() {
   return <></>;
 }
