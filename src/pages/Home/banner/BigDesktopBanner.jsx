@@ -82,7 +82,7 @@ export default function BigDesktopBanner() {
                       <img src={movie.title} className="w-full aspect-auto" />
                     </figure>
 
-                    <span className="text-[1.2vw] font-normal">
+                    <span className="text-[1.6vw] font-normal">
                       Coming Soon | December 24
                     </span>
                     <button
@@ -91,13 +91,13 @@ export default function BigDesktopBanner() {
                         dispatch(openVideoPlayer());
                         dispatch(playVideo());
                       }}
-                      className="p-[.6vw] ps-[1.4vw] pe-[1.8vw] mt-[1.5vw] leading-[2.4vw] w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-4 justify-start">
+                      className="p-[.8vw] ps-[1.7vw] pe-[2.1vw] mt-[1.5vw] leading-[2.4vw] w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-4 justify-start">
                       <img
-                        className="w-[2vw] h-[2vw]"
+                        className="w-[2.6vw] h-[2.6vw]"
                         src="src\assets\img\playIcon.svg"
                         alt=""
                       />
-                      <span className="text-[1.2vw] font-medium">
+                      <span className="text-[1.4vw] font-medium">
                         Watch Trailer
                       </span>
                     </button>

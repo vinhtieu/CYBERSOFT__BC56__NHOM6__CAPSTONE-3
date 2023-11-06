@@ -20,7 +20,7 @@ const DesktopContent = () => {
 
   return (
     <div>
-      <div className="block w-[90%] ml-auto px-2 mr-auto mb-5 mt-20 text-white text-[2vw] leading-[1.5vw] font-bold z-50 relative">
+      <div className="block w-[90%] ml-auto px-2 mr-auto mb-5 mt-20 text-white text-[1.8vw] leading-[1.5vw] font-bold z-50 relative">
         Now Playing
       </div>
       <Carousel className="mb-28">
@@ -30,7 +30,7 @@ const DesktopContent = () => {
           );
         })}
       </Carousel>
-      <div className="block w-[90%] ml-auto px-2 mr-auto mb-5  text-white text-[2vw] leading-[1.5vw] font-bold z-50 relative">
+      <div className="block w-[90%] ml-auto px-2 mr-auto mb-5  text-white text-[1.8vw] leading-[1.5vw] font-bold z-50 relative">
         Coming Soon
       </div>
       <Carousel className="mb-28">

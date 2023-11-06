@@ -43,7 +43,7 @@ export default function TabletLandscapeBanner() {
                       <img src={movie.title} className="w-full aspect-auto" />
                     </figure>
 
-                    <span className="text-base font-normal">
+                    <span className="text-2xl font-normal">
                       Coming Soon | December 24
                     </span>
                     <button
@@ -52,14 +52,14 @@ export default function TabletLandscapeBanner() {
                         dispatch(openVideoPlayer());
                         dispatch(playVideo());
                       }}
-                      className="p-[.7vw] ps-[1.6vw] pe-[2vw]
+                      className="p-[.8vw] ps-[1.7vw] pe-[2.1vw]
                       mt-[1.5vw] leading-[2.6vw]  w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-2  justify-start">
                       <img
-                        className="w-[1.5rem] h-[1.5rem] "
+                        className="w-[2rem] h-[2rem] "
                         src="src\assets\img\playIcon.svg"
                         alt=""
                       />
-                      <span className="text-[1.2rem]  font-medium">
+                      <span className="text-[1.6vw]  font-medium">
                         Watch Trailer
                       </span>
                     </button>

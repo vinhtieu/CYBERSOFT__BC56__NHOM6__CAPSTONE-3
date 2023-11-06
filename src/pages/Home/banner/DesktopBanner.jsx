@@ -10,8 +10,8 @@ const NextArrow = forwardRef((props, ref) => {
         ref.current.slickNext();
       }}
       type="button"
-      className=" absolute top-[55%] right-[.5vw] block z-50 group">
-      <figure className="hidden w-24 h-24 ml-auto mr-auto group-hover:inline-block">
+      className=" absolute top-[55%] -right-0 block z-50 group">
+      <figure className="hidden  w-[88px] h-[88px]  ml-auto mr-auto group-hover:inline-block">
         <img
           src="src\assets\img\pngaaa.com-3944443.png"
           alt=""
@@ -29,8 +29,8 @@ const PrevArrow = forwardRef((props, ref) => {
         ref.current.slickPrev();
       }}
       type="button"
-      className=" absolute top-[55%] left-[.5vw] block z-50 group">
-      <figure className="hidden w-24 h-24 ml-auto mr-auto group-hover:inline-block">
+      className=" absolute top-[55%] -left-0 block z-50 group">
+      <figure className="hidden ml-auto mr-auto w-[88px] h-[88px] group-hover:inline-block">
         <img
           src="src\assets\img\pngaaa.com-3944443.png"
           alt=""
@@ -106,7 +106,7 @@ export default function DesktopBanner() {
                       <img src={movie.title} className="w-full aspect-auto" />
                     </figure>
 
-                    <span className="text-[1.2vw] font-normal">
+                    <span className="text-[1.4vw] font-normal">
                       Coming Soon | December 24
                     </span>
                     <button
@@ -115,9 +115,9 @@ export default function DesktopBanner() {
                         dispatch(openVideoPlayer());
                         dispatch(playVideo());
                       }}
-                      className="p-[.6vw] ps-[1.4vw] pe-[1.8vw] mt-[1.5vw] leading-[2.4vw] w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-4 justify-start">
+                      className="p-[.8vw] ps-[1.7vw] pe-[2.1vw] mt-[1.5vw] leading-[2.4vw] w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-4 justify-start">
                       <img
-                        className="w-[2vw] h-[2vw]"
+                        className="w-[2.4vw] h-[2.4vw]"
                         src="src\assets\img\playIcon.svg"
                         alt=""
                       />

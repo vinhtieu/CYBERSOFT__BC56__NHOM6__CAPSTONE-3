@@ -38,12 +38,12 @@ export default function TabletPortraitBanner() {
                       alt="Thumbnail"
                     />
                   </figure>
-                  <div className="absolute left-[5%] top-[45%] px-2 -translate-y-1/2 flex flex-col">
+                  <div className="absolute left-[5%] top-[43.5%] px-2 -translate-y-1/2 flex flex-col">
                     <figure className="w-[36vw] mb-2">
                       <img src={movie.title} className="w-full aspect-auto" />
                     </figure>
 
-                    <span className="text-base font-normal">
+                    <span className="text-lg font-normal">
                       Coming Soon | December 24
                     </span>
                     <button
@@ -55,11 +55,11 @@ export default function TabletPortraitBanner() {
                       className="p-[.7vw] ps-[1.6vw] pe-[2vw]
                       mt-[1.2vw] leading-[2.6vw]  w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-2  justify-start">
                       <img
-                        className="w-[1.5rem] h-[1.5rem] "
+                        className="w-[2rem] h-[2rem] "
                         src="src\assets\img\playIcon.svg"
                         alt=""
                       />
-                      <span className="text-[.9rem] font-medium">
+                      <span className="text-base font-medium">
                         Watch Trailer
                       </span>
                     </button>
