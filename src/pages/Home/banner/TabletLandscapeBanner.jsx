@@ -52,14 +52,14 @@ export default function TabletLandscapeBanner() {
                         dispatch(openVideoPlayer());
                         dispatch(playVideo());
                       }}
-                      className="p-[.8vw] ps-[1.7vw] pe-[2.1vw]
+                      className="py-4 ps-[1.7rem] pe-[2.1rem]
                       mt-[1.5vw] leading-[2.6vw]  w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-2  justify-start">
                       <img
-                        className="w-[2rem] h-[2rem] "
+                        className="w-10 h-10"
                         src="src\assets\img\playIcon.svg"
                         alt=""
                       />
-                      <span className="text-[1.6vw]  font-medium">
+                      <span className="text-2xl font-medium">
                         Watch Trailer
                       </span>
                     </button>
