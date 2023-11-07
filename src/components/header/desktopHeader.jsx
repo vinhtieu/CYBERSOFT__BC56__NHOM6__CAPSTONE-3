@@ -34,7 +34,8 @@ export default function DesktopHeader() {
       <div
         ref={headerRef}
         className={`fixed top-0 left-0 z-[100] h-24 2xl:h-32 w-full py-7 px-2transition-all duration-300
-            ${isScrolled ? "solid-background" : "gradient-background"}`}>
+            ${isScrolled ? "solid-background" : "gradient-background"}`}
+      >
         <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto text-xl z-[95]">
           <a
             className=" text-[#ad3639] cursor-pointer"
@@ -43,7 +44,8 @@ export default function DesktopHeader() {
             }}
             onClick={() => {
               navigateTo("/");
-            }}>
+            }}
+          >
             <figure className="w-16 min-[1279.98px]:w-[3.2vw] transition-all">
               <img
                 className="w-full h-full"
@@ -68,14 +70,25 @@ export default function DesktopHeader() {
             href=""
             onClick={() => {
               navigateTo("/login");
-            }}>
+            }}
+          >
             LOGIN
+          </a>
+          <a
+            className=" text-white hover:text-[#ae1f22] text-xs lg:text-[14px] 2xl:text-[18px] transition-all duration-300 inline-block max-[939.98px]:hidden"
+            href=""
+            onClick={() => {
+              navigateTo("/register");
+            }}
+          >
+            REGISTER
           </a>
           <button
             onClick={() => {
               dispatch(toggleNavMenu());
             }}
-            className="hidden max-[939.98px]:inline-block w-10 aspect-square">
+            className="hidden max-[939.98px]:inline-block w-10 aspect-square"
+          >
             <img
               className="w-full h-full"
               src={`${

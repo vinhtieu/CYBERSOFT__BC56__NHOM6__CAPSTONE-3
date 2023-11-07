@@ -22,7 +22,8 @@ export default function LoginPage() {
             size: "large",
           }}
           size="large"
-          onFinish={onFinish}>
+          onFinish={onFinish}
+        >
           <Form.Item
             name="username"
             rules={[
@@ -30,7 +31,8 @@ export default function LoginPage() {
                 required: true,
                 message: "Please input your Username!",
               },
-            ]}>
+            ]}
+          >
             <Input
               className="h-12"
               prefix={<UserOutlined className="site-form-item-icon" />}
@@ -44,7 +46,8 @@ export default function LoginPage() {
                 required: true,
                 message: "Please input your Password!",
               },
-            ]}>
+            ]}
+          >
             <Input
               className="h-12"
               prefix={<LockOutlined className="site-form-item-icon" />}
@@ -57,7 +60,8 @@ export default function LoginPage() {
               name="remember"
               className="mb-0"
               valuePropName="checked"
-              style={{ display: "inline-block" }}>
+              style={{ display: "inline-block" }}
+            >
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
@@ -72,17 +76,19 @@ export default function LoginPage() {
             <Button
               type=""
               htmlType="submit"
-              className="login-form-button transition-all bg-[#ad3639] hover:bg-[#b73a3e] text-white w-full h-12">
+              className="login-form-button transition-all bg-[#ad3639] hover:bg-[#b73a3e] text-white w-full h-12"
+            >
               Log in
             </Button>
           </Form.Item>
         </Form>
         <span className="mt-auto">
-          Don't have an account?{" "}
+          Don't have an account?
           <a
             className="transition-all text-[#ad3639] hover:text-[#b73a3e]"
-            href="/">
-            Sign up
+            href="/register"
+          >
+            Register
           </a>
         </span>
       </div>

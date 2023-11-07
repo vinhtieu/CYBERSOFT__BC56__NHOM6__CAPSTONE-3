@@ -43,7 +43,8 @@ export default function MobileHeader() {
       <div
         ref={headerRef}
         className={`fixed top-0 left-0 z-[100] h-24 2xl:h-32 w-full py-7 px-2transition-all duration-300
-            ${isScrolled ? "solid-background" : "gradient-background"}`}>
+            ${isScrolled ? "solid-background" : "gradient-background"}`}
+      >
         <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto text-xl z-[95] relative">
           <a
             className=" text-[#ad3639] cursor-pointer"
@@ -52,7 +53,8 @@ export default function MobileHeader() {
             }}
             onClick={() => {
               navigateTo("/");
-            }}>
+            }}
+          >
             <figure className="w-16 min-[1279.98px]:w-[3.2vw] transition-all">
               <img
                 className="w-full h-full"
@@ -65,7 +67,8 @@ export default function MobileHeader() {
             onClick={() => {
               dispatch(toggleNavMenu());
             }}
-            className="hidden max-[939.98px]:inline-block w-10 aspect-square">
+            className="hidden max-[939.98px]:inline-block w-10 aspect-square"
+          >
             <img
               className="w-full h-full"
               src={`${
@@ -81,7 +84,8 @@ export default function MobileHeader() {
         <div
           className={`${
             isNavMenuOpen ? "translate-x-0" : "translate-x-full"
-          } fixed bottom-0 right-0 h-screen w-[50vw] bg-black p-2 z-[90] transition-all`}>
+          } fixed bottom-0 right-0 h-screen w-[50vw] bg-black p-2 z-[90] transition-all`}
+        >
           <nav className="flex flex-col px-[calc(100vw-95vw-0.5rem)] mt-24 space-y-4 text-xl text-right text-gray-400 ">
             <a
               onClick={() => {
@@ -92,7 +96,8 @@ export default function MobileHeader() {
                   ? "after:content-[''] after:absolute after:-right-[calc(100vw-95vw)] after:w-2 after:h-full after:bg-[#ae1f22] "
                   : ""
               } hover:text-white relative leading-10`}
-              href="">
+              href=""
+            >
               Home
             </a>
             <a
@@ -104,7 +109,8 @@ export default function MobileHeader() {
                   ? "after:content-[''] after:absolute after:-right-[calc(100vw-95vw)] after:w-2 after:h-full after:bg-[#ae1f22] "
                   : ""
               } hover:text-white relative leading-10`}
-              href="#!">
+              href="#!"
+            >
               Showtimes
             </a>
             <a
@@ -116,18 +122,28 @@ export default function MobileHeader() {
                 activePage === PAGE.FOOD_AND_DRINK
                   ? "after:content-[''] after:absolute after:-right-[calc(100vw-95vw)] after:w-2 after:h-full after:bg-[#ae1f22] "
                   : ""
-              } hover:text-white relative leading-10`}>
+              } hover:text-white relative leading-10`}
+            >
               Food & Drink
             </a>
             <div
               onClick={() => {}}
               className="w-full h-px bg-gray-700"
-              href=""></div>
+              href=""
+            ></div>
             <a
               onClick={() => {}}
               className={` hover:text-white relative leading-10`}
-              href="">
+              href=""
+            >
               Login
+            </a>
+            <a
+              onClick={() => {}}
+              className={` hover:text-white relative leading-10`}
+              href=""
+            >
+              Register
             </a>
           </nav>
         </div>
@@ -138,7 +154,8 @@ export default function MobileHeader() {
           }}
           className={`${
             isNavMenuOpen ? "block" : "hidden"
-          } fixed top-0 left-0 right-0 cursor-pointer h-screen  bg-black bg-opacity-50 transition-all`}></div>
+          } fixed top-0 left-0 right-0 cursor-pointer h-screen  bg-black bg-opacity-50 transition-all`}
+        ></div>
       </div>
     </>
   );
