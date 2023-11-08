@@ -11,7 +11,6 @@ movieApi.interceptors.request.use(
     // Do something before request is sent
     const { loadingOn } = loadingScreenSlice.actions;
     store.dispatch(loadingOn());
-    console.log("loading on");
     return config;
   },
   function (error) {
@@ -29,8 +28,7 @@ movieApi.interceptors.response.use(
     const { loadingOff } = loadingScreenSlice.actions;
     setTimeout(() => {
       store.dispatch(loadingOff());
-      console.log("loading off");
-    }, 1500);
+    }, 1000);
 
     return response;
   },

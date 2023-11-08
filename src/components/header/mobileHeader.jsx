@@ -4,6 +4,7 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { navMenuSlice } from "../../lib/redux";
 import { PAGE } from "../../constant";
+import { Overlay } from "../../components";
 
 export default function MobileHeader() {
   const isNavMenuOpen = useSelector((state) => state.navMenu.isOpen);
@@ -136,9 +137,9 @@ export default function MobileHeader() {
           onClick={() => {
             dispatch(toggleNavMenu(false));
           }}
-          className={`${
-            isNavMenuOpen ? "block" : "hidden"
-          } fixed top-0 left-0 right-0 cursor-pointer h-screen  bg-black bg-opacity-50 transition-all`}></div>
+          className={`${isNavMenuOpen ? "block" : "hidden"} `}>
+          <Overlay position="fixed" />
+        </div>
       </div>
     </>
   );

@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
+import { Overlay } from "../../components";
 
 export default function LoginPage() {
+  const login_background = "src/assets/img/background.avif";
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
 
   return (
     <div className="relative w-screen h-screen">
-      <div className="absolute top-0 bottom-0 left-0 right-0 z-10 bg-black opacity-50"></div>
+      <Overlay />
 
       <div className="absolute z-10 flex flex-col items-center justify-start w-1/5 p-8 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md h-2/4 top-1/2 left-1/2">
         <span className="block mt-4 mb-20 text-5xl font-medium">Login</span>
@@ -87,9 +89,9 @@ export default function LoginPage() {
         </span>
       </div>
 
-      <figure className="z-0 w-full h-full ">
+      <figure className="z-0 w-full h-full">
         <img
-          src="src\assets\background.avif"
+          src={login_background}
           alt=""
           className="object-cover w-full h-full"
         />
