@@ -30,11 +30,10 @@ export default function DesktopHeader() {
 
   return (
     <>
-      {/* //Header */}
       <div
         ref={headerRef}
         className={`fixed top-0 left-0 z-[100] h-24 2xl:h-32 w-full py-7 px-2transition-all duration-300
-            ${isScrolled ? "solid-background" : "gradient-background"}`}>
+      ${isScrolled ? "solid-background " : "gradient-background"}`}>
         <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto text-xl z-[95]">
           <a
             className=" text-[#ad3639] cursor-pointer"

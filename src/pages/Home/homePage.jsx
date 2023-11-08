@@ -8,7 +8,6 @@ import { CSSTransition } from "react-transition-group";
 import "./style.css";
 
 export default function HomePage() {
-  const [showLoading, setShowLoading] = useState(true);
   const { setComingSoonMovies, setNowPlayingMovies } = movieListSlice.actions;
   const dispatch = useDispatch();
 
@@ -23,30 +22,11 @@ export default function HomePage() {
       })
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => {
-        setTimeout(() => {
-          setShowLoading(false);
-        }, 1000);
       });
   }, []);
 
   return (
     <>
-      {
-        <CSSTransition
-          in={showLoading}
-          timeout={{
-            appear: 0,
-            enter: 0,
-            exit: 500,
-          }}
-          classNames="component"
-          unmountOnExit
-          appear={true}>
-          <LoadingScreen />
-        </CSSTransition>
-      }
       <HomeContent />
     </>
   );

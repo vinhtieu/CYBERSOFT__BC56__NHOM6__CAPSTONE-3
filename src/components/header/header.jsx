@@ -4,7 +4,7 @@ import DesktopHeader from "./desktopHeader";
 import MobileHeader from "./mobileHeader";
 
 const Desktop = ({ children }) => {
-  const isDesktop = useMediaQuery({ minWidth: 939, maxWidth: 1669.98 });
+  const isDesktop = useMediaQuery({ minWidth: 939 });
   return isDesktop ? children : null;
 };
 

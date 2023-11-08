@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 
 const LoadingScreen = () => {
   return (
-    <div className={`absolute top-0 left-0 w-full h-full bg-black z-[110]`}>
+    <div className={`absolute top-0 left-0 bottom-0 right-0 bg-black z-[110]`}>
       <img
         className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 scale-[2.4]"
         src="src\assets\img\spinner.svg"
