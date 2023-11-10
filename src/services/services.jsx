@@ -1,5 +1,6 @@
+import exp from "constants";
 import { movieApi } from "./movieApi";
-import { showtimesApi } from "./showtimesApi";
+import { showtimesApi, userApi } from "./fakeApi";
 
 export const movieService = {
   getNowPlayingMovies: () => {
@@ -9,19 +10,15 @@ export const movieService = {
     return movieApi.get("/ComingSoonMovies");
   },
 };
+
 export const showtimesService = {
   getData: () => {
-    return showtimesApi.get(
-      "/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01"
-    );
+    return showtimesApi.get("/api/QuanLyNguoiDung/DangNhap");
   },
-  // setData: () => {
-  //   return theaterApi.get(
-  //     "/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01"
-  //   );
-  // },
+};
 
-  // getComingSoonMovies: () => {
-  //   return theaterApi.get("/ComingSoonMovies");
-  // },
+export const userService = {
+  login: (value) => {
+    return userApi.post("/api/QuanLyNguoiDung/DangNhap", value);
+  },
 };

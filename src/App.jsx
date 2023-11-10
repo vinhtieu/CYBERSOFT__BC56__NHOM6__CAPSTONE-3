@@ -3,11 +3,14 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage, ShowtimesPage, LoginPage } from "./pages";
 import Layout from "./layout";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Toaster />
+
         <Routes>
           <Route
             path="/"

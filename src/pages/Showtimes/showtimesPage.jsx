@@ -34,11 +34,11 @@ export default function ShowtimesPage() {
 
   return (
     <div className="flex-1 mt-[8rem] flex flex-col">
-      {/* <Desktop>
+      <Desktop>
         <div className="mt-auto mb-auto">
           <DesktopShowtimes list={showtimesList} />
         </div>
-      </Desktop> */}
+      </Desktop>
 
       <Mobile>
         <div className="w-[90%] h-500px flex-1  mr-auto ml-auto mx-2 p-2">
