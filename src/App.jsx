@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage } from "./pages";
+import { HomePage, ShowtimesPage, LoginPage } from "./pages";
 import Layout from "./layout";
-import LoginPage from "./pages/Login";
 
 function App() {
   return (
@@ -15,6 +14,22 @@ function App() {
             element={
               <Layout>
                 <HomePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/showtimes"
+            element={
+              <Layout>
+                <ShowtimesPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/food&drink"
+            element={
+              <Layout>
+                <ShowtimesPage />
               </Layout>
             }
           />

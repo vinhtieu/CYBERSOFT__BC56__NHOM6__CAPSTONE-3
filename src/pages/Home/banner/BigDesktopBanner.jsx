@@ -10,7 +10,7 @@ const NextArrow = forwardRef((props, ref) => {
         ref.current.slickNext();
       }}
       type="button"
-      className=" absolute top-[55%] right-[.5vw] block z-50 group">
+      className="absolute top-[55%] right-[.5vw] block z-50 group">
       <figure className="hidden w-24 h-24 ml-auto mr-auto group-hover:inline-block">
         <img
           src="src\assets\img\pngaaa.com-3944443.png"

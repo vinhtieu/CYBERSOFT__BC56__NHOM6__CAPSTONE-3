@@ -32,14 +32,11 @@ export default function DesktopHeader() {
     <>
       <div
         ref={headerRef}
-        className={`fixed top-0 left-0 z-[100] h-24 2xl:h-32 w-full py-7 px-2transition-all duration-300
+        className={`fixed top-0 left-0 z-[100] h-24 2xl:h-32 w-full py-7 px-2 transition-all duration-300
       ${isScrolled ? "solid-background " : "gradient-background"}`}>
-        <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto text-xl z-[95]">
+        <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto  z-[95]">
           <a
             className=" text-[#ad3639] cursor-pointer"
-            style={{
-              fontFamily: "Archivo Black , sans-serif",
-            }}
             onClick={() => {
               navigateTo("/");
             }}>
@@ -51,14 +48,29 @@ export default function DesktopHeader() {
               />
             </figure>
           </a>
-          <nav className="space-x-8 text-white text-xs lg:text-[14px] 2xl:text-[18px] transition-all duration-300 inline-block max-[939.98px]:hidden">
-            <a href="" className="p-2 hover:text-[#ae1f22]">
+          <nav className="space-x-8 text-white text-sm lg:text-base 2xl:text-[18px] transition-all duration-300 inline-block max-[939.98px]:hidden">
+            <a
+              href=""
+              className="p-2 hover:text-[#ae1f22]"
+              onClick={() => {
+                navigateTo("/");
+              }}>
+              HOME
+            </a>
+            <a
+              href=""
+              className="p-2 hover:text-[#ae1f22]"
+              onClick={() => {
+                navigateTo("/showtimes");
+              }}>
               SHOWTIMES
             </a>
-            <a href="" className="p-2 hover:text-[#ae1f22]">
-              THEATER
-            </a>
-            <a href="" className="p-2 hover:text-[#ae1f22]">
+            <a
+              href=""
+              className="p-2 hover:text-[#ae1f22]"
+              onClick={() => {
+                navigateTo("/food&drink");
+              }}>
               FOOD & DRINK
             </a>
           </nav>

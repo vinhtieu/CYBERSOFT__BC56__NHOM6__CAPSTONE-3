@@ -4,6 +4,7 @@ import {
   videoPlayerSlice,
   navMenuSlice,
   loadingScreenSlice,
+  showtimesSlice,
 } from "../redux";
 
 export const store = configureStore({
@@ -12,5 +13,6 @@ export const store = configureStore({
     videoPlayer: videoPlayerSlice.reducer,
     navMenu: navMenuSlice.reducer,
     loadingScreen: loadingScreenSlice.reducer,
+    showtimes: showtimesSlice.reducer,
   },
 });

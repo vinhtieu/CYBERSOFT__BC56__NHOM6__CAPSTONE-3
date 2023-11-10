@@ -9,8 +9,7 @@
 }
 
 body {
-  box-sizing: border-box;
-  background: black;
+  @apply box-border text-gray-300 bg-black;
 }
 
 .slick-next:before,

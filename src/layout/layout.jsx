@@ -10,8 +10,8 @@ export default function Layout({ children }) {
   return (
     <div
       className={`${
-        isNavMenuOpen ? "h-screen overflow-hidden" : "min-h-screen"
-      } `}>
+        isNavMenuOpen ? "overflow-hidden" : ""
+      } min-h-screen flex flex-col`}>
       <CSSTransition
         in={isLoadingScreenOn}
         timeout={{
@@ -31,7 +31,7 @@ export default function Layout({ children }) {
         timeout={{
           appear: 500,
           enter: 500,
-          exit: 0,
+          exit: 500,
         }}
         classNames="component"
         unmountOnExit
