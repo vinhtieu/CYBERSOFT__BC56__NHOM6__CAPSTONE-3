@@ -1,1 +1,1 @@
-export { default as PAGE } from "./pages";
+export * from "./constants";

@@ -4,6 +4,7 @@ import { showtimesSlice } from "../../lib/redux";
 import { showtimesService } from "../../services";
 import MobileShowtimes from "./mobileShowtimes";
 import DesktopShowtimes from "./desktopShowtimes";
+import { useMediaQuery } from "react-responsive";
 import "./style.css";
 
 export default function ShowtimesPage() {
@@ -21,15 +22,29 @@ export default function ShowtimesPage() {
       });
   }, []);
 
+  const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 1150 });
+    return isDesktop ? children : null;
+  };
+
+  const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 1149.98 });
+    return isMobile ? children : null;
+  };
+
   return (
     <div className="flex-1 mt-[8rem] flex flex-col">
-      <div className="min-[1150px]:block hidden mt-auto mb-auto">
-        <DesktopShowtimes list={showtimesList} />
-      </div>
+      {/* <Desktop>
+        <div className="mt-auto mb-auto">
+          <DesktopShowtimes list={showtimesList} />
+        </div>
+      </Desktop> */}
 
-      <div className="max-[1149.98px]:block hidden  w-[90%] h-500px flex-1  mr-auto ml-auto mx-2 p-2">
-        <MobileShowtimes list={showtimesList} />
-      </div>
+      <Mobile>
+        <div className="w-[90%] h-500px flex-1  mr-auto ml-auto mx-2 p-2">
+          <MobileShowtimes list={showtimesList} />
+        </div>
+      </Mobile>
     </div>
   );
 }

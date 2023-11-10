@@ -4,14 +4,20 @@ import { showtimesSlice } from "../../lib/redux";
 import { Tabs } from "antd";
 import { showtimesService } from "../../services";
 import "./style.css";
+import { FALLBACK_IMG } from "../../constant";
 
 export default function DesktopShowtimes({ list }) {
+  const [isImgError, setIsImgError] = useState(true);
+
   const renderShowtimesTable = (data) => {
     return data.map((cinema) => {
       return {
         label: (
           <figure className="theater-logo">
-            <img className="object-contain w-full h-full" src={cinema.logo} />
+            <img
+              className="object-contain w-full h-full"
+              src={cinema.logo ? cinema.logo : FALLBACK_IMG}
+            />
           </figure>
         ),
         key: cinema.maHeThongRap,
@@ -63,6 +69,13 @@ export default function DesktopShowtimes({ list }) {
               className="object-cover w-full h-full"
               src={film.hinhAnh}
               alt={film.tenPhim}
+              onError={(e) => {
+                if (isImgError) {
+                  setIsImgError(false);
+                  e.target.onerror = null;
+                  e.target.src = FALLBACK_IMG;
+                }
+              }}
             />
           </figure>
           <div className="">

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Dropdown } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { showtimesSlice } from "../../lib/redux";
+import { FALLBACK_IMG } from "../../constant";
 
 export default function MobileShowtimes({ list }) {
   const DEFAULT_CINEMA_ID = "cgv-aeon-tan-phu";
   const DEFAULT_CINEMA_NAME = "CGV - Aeon Tân Phú";
+  const [isImgError, setIsImgError] = useState(true);
   const [showtimesList, setShowtimesList] = useState([]);
   const [cinemaName, setCinemaName] = useState([]);
 
@@ -65,12 +67,19 @@ export default function MobileShowtimes({ list }) {
       return (
         <div
           key={film.maPhim}
-          className="grid w-full h-auto  grid-cols-[8rem,1fr] gap-8 py-4 ">
-          <figure className="w-36 min-w-[28px] aspect-[11/17]">
+          className="grid w-full h-auto  grid-cols-[12rem,1fr] gap-8 py-4 ">
+          <figure className="w-48 min-w-[28px] aspect-[11/17]">
             <img
               className="object-cover w-full h-full"
               src={film.hinhAnh}
               alt={film.tenPhim}
+              onError={(e) => {
+                if (isImgError) {
+                  setIsImgError(false);
+                  e.target.onerror = null;
+                  e.target.src = FALLBACK_IMG;
+                }
+              }}
             />
           </figure>
           <div className="">
@@ -102,7 +111,7 @@ export default function MobileShowtimes({ list }) {
           <span className="text-base hover:text-white">Choose Cinema</span>
         </div>
       </Dropdown>
-      <h3 className="block max-[600px]:text-2xl max-[1000px]:text-4xl font-bold mt-10 mb-4">
+      <h3 className="block max-[600px]:text-2xl text-4xl font-bold mt-10 mb-4">
         {cinemaName}
       </h3>
 
