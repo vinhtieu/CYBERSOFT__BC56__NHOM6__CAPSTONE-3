@@ -1,4 +1,3 @@
-import exp from "constants";
 import { movieApi } from "./movieApi";
 import { showtimesApi, userApi } from "./fakeApi";
 
@@ -13,7 +12,9 @@ export const movieService = {
 
 export const showtimesService = {
   getData: () => {
-    return showtimesApi.get("/api/QuanLyNguoiDung/DangNhap");
+    return showtimesApi.get(
+      "/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01"
+    );
   },
 };
 

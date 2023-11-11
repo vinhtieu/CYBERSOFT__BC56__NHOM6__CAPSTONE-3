@@ -22,6 +22,8 @@ export default function ShowtimesPage() {
       });
   }, []);
 
+  console.log(showtimesList);
+
   const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 1150 });
     return isDesktop ? children : null;

@@ -27,6 +27,8 @@ showtimesApi.interceptors.request.use(
   },
   function (error) {
     // Do something with request error
+    const { loadingOff } = loadingScreenSlice.actions;
+
     store.dispatch(loadingOff());
     console.log("interceptors has errors");
     return Promise.reject(error.message);
@@ -49,6 +51,8 @@ showtimesApi.interceptors.response.use(
   function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
+    const { loadingOff } = loadingScreenSlice.actions;
+
     store.dispatch(loadingOff());
     console.log("interceptors has errors");
 
