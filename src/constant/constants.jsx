@@ -5,6 +5,9 @@ export const PAGE = {
   FOOD_AND_DRINK: "FOOD_AND_DRINK",
 };
 
+export const NOW_PLAYING = "NOW_PLAYING";
+export const COMING_SOON = "COMING_SOON";
+
 export const FALLBACK_IMG =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
 

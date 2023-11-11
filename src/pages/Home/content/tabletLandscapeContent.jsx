@@ -8,10 +8,10 @@ import ReactPlayer from "react-player";
 
 const TabletLandscapeContent = () => {
   const nowPlayingMovieList = useSelector(
-    (state) => state.movieList.nowPlayingMovies
+    (state) => state.cinema.nowPlayingMovies
   );
   const comingSoonMovieList = useSelector(
-    (state) => state.movieList.comingSoonMovies
+    (state) => state.cinema.comingSoonMovies
   );
   const videoPlayOpen = useSelector((state) => state.videoPlayer.isOpen);
   const videoURL = useSelector((state) => state.videoPlayer.url);

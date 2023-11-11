@@ -1,20 +1,8 @@
-import { movieApi } from "./movieApi";
-import { showtimesApi, userApi } from "./fakeApi";
+import { cinemaApi, userApi } from "./fakeApi";
 
-export const movieService = {
-  getNowPlayingMovies: () => {
-    return movieApi.get("/NowPlayingMovies");
-  },
-  getComingSoonMovies: () => {
-    return movieApi.get("/ComingSoonMovies");
-  },
-};
-
-export const showtimesService = {
+export const cinemaService = {
   getData: () => {
-    return showtimesApi.get(
-      "/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01"
-    );
+    return cinemaApi.get("/cinema");
   },
 };
 

@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { movieService } from "../../services/services";
-import { movieListSlice } from "../../lib/redux";
+import { cinemaService } from "../../services";
+import { cinemaSlice } from "../../lib/redux";
 import { LoadingScreen } from "../../components";
 import HomeContent from "./homeContent";
 import { CSSTransition } from "react-transition-group";
 import "./style.css";
+import { getComingSoonMovies, getNowPlayingMovies } from "../../lib/helper";
 
 export default function HomePage() {
-  const { setComingSoonMovies, setNowPlayingMovies } = movieListSlice.actions;
+  const { setData, setNowPlayingMovies, setComingSoonMovies } =
+    cinemaSlice.actions;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Promise.all([
-      movieService.getNowPlayingMovies(),
-      movieService.getComingSoonMovies(),
-    ])
-      .then(([nowPlayingRes, comingSoonRes]) => {
-        dispatch(setNowPlayingMovies(nowPlayingRes.data));
-        dispatch(setComingSoonMovies(comingSoonRes.data));
+    Promise.all([cinemaService.getData()])
+      .then(([res]) => {
+        const nowPlayingMovies = getNowPlayingMovies(res.data);
+        const comingSoonMovies = getComingSoonMovies(res.data);
+
+        console.table(nowPlayingMovies);
+        dispatch(setData(res.data));
+        dispatch(setNowPlayingMovies(nowPlayingMovies));
+        dispatch(setComingSoonMovies(comingSoonMovies));
       })
       .catch((err) => {
         console.log(err);

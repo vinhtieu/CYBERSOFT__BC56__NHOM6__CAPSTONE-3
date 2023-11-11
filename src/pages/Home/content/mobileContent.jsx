@@ -8,16 +8,15 @@ import ReactPlayer from "react-player";
 
 const MobileContent = () => {
   const nowPlayingMovieList = useSelector(
-    (state) => state.movieList.nowPlayingMovies
+    (state) => state.cinema.nowPlayingMovies
   );
   const comingSoonMovieList = useSelector(
-    (state) => state.movieList.comingSoonMovies
+    (state) => state.cinema.comingSoonMovies
   );
   const videoPlayOpen = useSelector((state) => state.videoPlayer.isOpen);
   const videoURL = useSelector((state) => state.videoPlayer.url);
   const { closeVideoPlayer, pauseVideo } = videoPlayerSlice.actions;
   const dispatch = useDispatch();
-  // sm:mt-12 lg:mt-16 xl:mt-20 2xl:mt-24
 
   return (
     <div>

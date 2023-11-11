@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  data: [],
+  nowPlayingMovies: [],
+  comingSoonMovies: [],
   trendingMovies: [
     //Peaky Blinders
     {
@@ -34,14 +37,15 @@ const initialState = {
         "https://www.themoviedb.org/t/p/original/9F3H3K1nOxVOHoDZk1pgkEYwGdT.png",
     },
   ],
-  nowPlayingMovies: [],
-  comingSoonMovies: [],
 };
 
-const movieListSlice = createSlice({
-  name: "movieList",
+const cinemaSlice = createSlice({
+  name: "cinema",
   initialState,
   reducers: {
+    setData: (state, actions) => {
+      state.data = actions.payload;
+    },
     setNowPlayingMovies: (state, action) => {
       state.nowPlayingMovies = action.payload;
     },
@@ -51,4 +55,4 @@ const movieListSlice = createSlice({
   },
 });
 
-export default movieListSlice;
+export default cinemaSlice;

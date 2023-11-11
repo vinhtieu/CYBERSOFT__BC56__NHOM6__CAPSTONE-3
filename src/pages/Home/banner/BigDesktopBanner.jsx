@@ -43,9 +43,7 @@ const PrevArrow = forwardRef((props, ref) => {
 
 export default function BigDesktopBanner() {
   const slickRef = useRef(0);
-  const trendingMovieList = useSelector(
-    (state) => state.movieList.trendingMovies
-  );
+  const trendingMovieList = useSelector((state) => state.cinema.trendingMovies);
   const { openVideoPlayer, playVideo, setVideoURL } = videoPlayerSlice.actions;
   const dispatch = useDispatch();
 
