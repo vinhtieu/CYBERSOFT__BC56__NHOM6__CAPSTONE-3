@@ -5,6 +5,7 @@ import {
   loadingScreenSlice,
   cinemaSlice,
   userSlice,
+  promotionSlice,
 } from "../redux";
 
 export const store = configureStore({
@@ -14,5 +15,6 @@ export const store = configureStore({
     loadingScreen: loadingScreenSlice.reducer,
     cinema: cinemaSlice.reducer,
     user: userSlice.reducer,
+    promotion: promotionSlice.reducer,
   },
 });

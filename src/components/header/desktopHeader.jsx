@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { LOGGING_OUT, LOG_IN } from "../../constant";
+import { LOGGING_OUT, LOG_IN, PAGE } from "../../constant";
 import { Dropdown } from "antd";
 import "./style.css";
-import { cinemaSlice, userSlice } from "../../lib/redux";
+import { cinemaSlice, navMenuSlice, userSlice } from "../../lib/redux";
 
 export default function DesktopHeader() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const AccountStatus = useSelector((state) => state.user.accountStatus);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { setPage } = navMenuSlice.actions;
   const { setAccountStatus } = userSlice.actions;
   const headerRef = useRef(0);
   const navigateTo = useNavigate();
@@ -16,7 +17,6 @@ export default function DesktopHeader() {
 
   const HandleLogoutUser = () => {
     console.log("Logout User");
-    dispatch(setAccountStatus(LOGGING_OUT));
     localStorage.clear();
     sessionStorage.clear();
     window.location.href = "/";
@@ -48,6 +48,7 @@ export default function DesktopHeader() {
       label: (
         <button
           onClick={() => {
+            dispatch(setAccountStatus(LOGGING_OUT));
             HandleLogoutUser();
           }}>
           Log out
@@ -80,14 +81,14 @@ export default function DesktopHeader() {
 
   const renderLoginNav = () => {
     return (
-      <a
-        className=" text-white hover:text-[#ae1f22] text-xs lg:text-[14px] 2xl:text-[18px] transition-all duration-300 inline-block max-[939.98px]:hidden"
+      <div
+        className=" text-white hover:text-[#ae1f22] text-xs lg:text-[14px] 2xl:text-[18px] transition-all duration-300 inline-block max-[939.98px]:hidden cursor-pointer"
         href=""
         onClick={() => {
           navigateTo("/login");
         }}>
         Log in
-      </a>
+      </div>
     );
   };
 
@@ -102,12 +103,14 @@ export default function DesktopHeader() {
     <>
       <div
         ref={headerRef}
-        className={`fixed top-0 left-0 z-[100] h-20 2xl:h-24 w-full py-5 px-2 transition-all duration-300
+        className={`fixed top-0 left-0 z-[100] h-24 2xl:h-28 w-full py-5 px-2 transition-all duration-300
       ${isScrolled ? "solid-background " : "gradient-background"}`}>
         <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto  z-[95]">
           <a
             className=" text-[#ad3639] cursor-pointer"
             onClick={() => {
+              dispatch(setPage(PAGE.HOME));
+
               navigateTo("/");
             }}>
             <figure className="w-16 min-[1279.98px]:w-[3.2vw] transition-all">
@@ -118,31 +121,32 @@ export default function DesktopHeader() {
               />
             </figure>
           </a>
-          <div className="space-x-8 text-white text-sm lg:text-base 2xl:text-[18px] transition-all duration-300 inline-block max-[939.98px]:hidden">
-            <a
-              href=""
-              className="p-2 hover:text-[#ae1f22]"
+          <div className="space-x-8 text-white text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden">
+            <div
+              className="p-2 hover:text-[#ae1f22] inline-block cursor-pointer"
               onClick={() => {
+                dispatch(setPage(PAGE.HOME));
                 navigateTo("/");
               }}>
               Home
-            </a>
-            <a
-              href=""
-              className="p-2 hover:text-[#ae1f22]"
+            </div>
+            <div
+              className="p-2 hover:text-[#ae1f22] inline-block cursor-pointer"
               onClick={() => {
+                dispatch(setPage(PAGE.SHOW_TIMES));
+
                 navigateTo("/showtimes");
               }}>
               Showtimes
-            </a>
-            <a
-              href=""
-              className="p-2 hover:text-[#ae1f22]"
+            </div>
+            <div
+              className="p-2 hover:text-[#ae1f22] inline-block cursor-pointer"
               onClick={() => {
-                navigateTo("/food&drink");
+                dispatch(setPage(PAGE.PROMOTION));
+                navigateTo("/promotion");
               }}>
-              Food & Drink
-            </a>
+              Promotion
+            </div>
           </div>
           {AccountStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
         </div>

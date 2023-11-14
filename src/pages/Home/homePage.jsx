@@ -18,7 +18,6 @@ export default function HomePage() {
     console.log("useEffect in homepage running");
 
     if (FetchStatus === NOT_FETCHED) {
-      console.log("Fetching Data");
       dispatch(setFetchStatus(FETCHING));
       dispatch(loadingOn());
       Promise.all([cinemaService.getData()])
@@ -42,10 +41,10 @@ export default function HomePage() {
           console.log(err);
         })
         .finally(() => {
-          dispatch(loadingOff());
+          setTimeout(() => {
+            dispatch(loadingOff());
+          }, 500);
         });
-    } else {
-      console.log("Data is fetched");
     }
   }, []);
 

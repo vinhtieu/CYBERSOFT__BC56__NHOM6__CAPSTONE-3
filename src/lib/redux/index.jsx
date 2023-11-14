@@ -3,4 +3,5 @@ export { default as navMenuSlice } from "./navMenuSlice";
 export { default as loadingScreenSlice } from "./loadingScreenSlice";
 export { default as cinemaSlice } from "./cinemaSlice";
 export { default as userSlice } from "./userSlice";
+export { default as promotionSlice } from "./promotionSlice";
 export * from "./store";

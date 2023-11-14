@@ -5,26 +5,27 @@ import { CSSTransition } from "react-transition-group";
 
 export default function Layout({ children }) {
   const isLoading = useSelector((state) => state.loadingScreen.isOn);
+  // const isLoading = true;
   const isNavMenuOpen = useSelector((state) => state.navMenu.isOpen);
 
   return (
     <>
-      <CSSTransition
-        in={isLoading}
-        timeout={{
-          appear: 300,
-          enter: 300,
-          exit: 300,
-        }}
-        classNames="component"
-        unmountOnExit
-        appear={true}>
-        <LoadingScreen />
-      </CSSTransition>
       <div
         className={`${
-          isNavMenuOpen || isLoading ? "overflow-hidden  opacity-0" : ""
-        } min-h-screen flex flex-col opacity-100 transition-all `}>
+          isNavMenuOpen || isLoading ? "overflow-hidden w-screen h-screen" : ""
+        } min-h-screen flex flex-col `}>
+        <CSSTransition
+          in={isLoading}
+          timeout={{
+            appear: 1000,
+            enter: 1000,
+            exit: 1000,
+          }}
+          classNames="component"
+          unmountOnExit
+          appear={true}>
+          <LoadingScreen />
+        </CSSTransition>
         <Header />
         {children}
         <Footer />

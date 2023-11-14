@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage, ShowtimesPage, LoginPage } from "./pages";
+import { HomePage, ShowtimesPage, LoginPage, Promotion } from "./pages";
 import Layout from "./layout";
 import { Toaster } from "react-hot-toast";
 
@@ -29,10 +29,10 @@ function App() {
             }
           />
           <Route
-            path="/food&drink"
+            path="/promotion"
             element={
               <Layout>
-                <ShowtimesPage />
+                <Promotion />
               </Layout>
             }
           />

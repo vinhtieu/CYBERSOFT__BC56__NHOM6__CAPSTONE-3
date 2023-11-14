@@ -7,8 +7,8 @@ import { userService } from "../../services";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { LOGGING_IN, LOG_IN, LOG_OUT } from "../../constant";
-import { userSlice } from "../../lib/redux";
+import { LOGGING_IN, LOG_IN, LOG_OUT, PAGE } from "../../constant";
+import { navMenuSlice, userSlice } from "../../lib/redux";
 
 const Desktop = ({ children }) => {
   const isDesktop = useMediaQuery({ minWidth: 940 });
@@ -29,13 +29,12 @@ const LoginPage = () => {
   const userAccount = useSelector((state) => state.user.account);
   const AccountStatus = useSelector((state) => state.user.accountStatus);
   const { setAccountStatus } = userSlice.actions;
+  const { setPage } = navMenuSlice.actions;
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
   useEffect(() => {
     if (AccountStatus === LOGGING_IN) {
-      console.log("Login User");
-
       userService
         .requestLogin(userAccount)
         .then((res) => {
@@ -43,6 +42,8 @@ const LoginPage = () => {
           localStorage.setItem("currentUser", JSON.stringify(userAccount));
           toast.success("Login Successful");
           setTimeout(() => {
+            toast.remove();
+            dispatch(setPage(PAGE.HOME));
             navigateTo("/");
           }, 1000);
         })
