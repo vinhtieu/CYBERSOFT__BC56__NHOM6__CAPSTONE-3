@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { showtimesSlice } from "../../lib/redux";
-// import { showtimesService } from "../../services";
+import React from "react";
+import { useSelector } from "react-redux";
 import MobileShowtimes from "./mobileShowtimes";
 import DesktopShowtimes from "./desktopShowtimes";
 import { useMediaQuery } from "react-responsive";
 import "./style.css";
-import { cinemaSlice } from "../../lib/redux";
-import { getComingSoonMovies, getNowPlayingMovies } from "../../lib/helper";
-import { cinemaService } from "../../services";
 
 export default function ShowtimesPage() {
   const Desktop = ({ children }) => {
@@ -22,19 +17,9 @@ export default function ShowtimesPage() {
   };
 
   const cinemaData = useSelector((state) => state.cinema.data);
-  console.log(cinemaData);
-  const { setData } = cinemaSlice.actions;
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    Promise.all([cinemaService.getData()])
-      .then(([res]) => {
-        dispatch(setData(res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  console.log("showtimePage running");
+  console.log(cinemaData);
 
   return (
     <div className="flex-1 mt-[8rem] flex flex-col">

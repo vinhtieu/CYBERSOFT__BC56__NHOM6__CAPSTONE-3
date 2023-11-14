@@ -16,3 +16,14 @@ export const LOGIN_BACKGROUND = "src/assets/img/background.avif";
 
 //REGISTER
 export const REGISTER_BACKGROUND = "src/assets/img/background.avif";
+
+//ACCOUNT_STATUS
+export const LOG_IN = "LOG_IN";
+export const LOGGING_IN = "LOGGING_IN";
+export const LOG_OUT = "LOG_OUT";
+export const LOGGING_OUT = "LOGGING_OUT";
+
+//FETCH STATUS
+export const FETCHED = "FETCHED";
+export const NOT_FETCHED = "NOT_FETCHED";
+export const FETCHING = "FETCHING";

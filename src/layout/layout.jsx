@@ -4,41 +4,50 @@ import { useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 
 export default function Layout({ children }) {
-  const isLoadingScreenOn = useSelector((state) => state.loadingScreen.isOn);
+  const isLoading = useSelector((state) => state.loadingScreen.isOn);
   const isNavMenuOpen = useSelector((state) => state.navMenu.isOpen);
 
   return (
-    <div
-      className={`${
-        isNavMenuOpen ? "overflow-hidden" : ""
-      } min-h-screen flex flex-col`}>
+    <>
       <CSSTransition
-        in={isLoadingScreenOn}
+        in={isLoading}
         timeout={{
-          appear: 500,
-          enter: 500,
-          exit: 500,
+          appear: 300,
+          enter: 300,
+          exit: 300,
         }}
         classNames="component"
         unmountOnExit
         appear={true}>
         <LoadingScreen />
       </CSSTransition>
-
-      <Header />
-      <CSSTransition
-        in={!isLoadingScreenOn}
-        timeout={{
-          appear: 500,
-          enter: 500,
-          exit: 500,
-        }}
-        classNames="component"
-        unmountOnExit
-        appear={true}>
+      <div
+        className={`${
+          isNavMenuOpen || isLoading ? "overflow-hidden  opacity-0" : ""
+        } min-h-screen flex flex-col opacity-100 transition-all `}>
+        <Header />
         {children}
-      </CSSTransition>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
+}
+
+{
+  /* <CSSTransition
+          in={!isLoading}
+          timeout={{
+            appear: 500,
+            enter: 500,
+            exit: 1000,
+          }}
+          classNames="component"
+          unmountOnExit
+          appear={true}>
+          <>
+            <Header />
+            {children}
+            <Footer />
+          </>
+        </CSSTransition> */
 }

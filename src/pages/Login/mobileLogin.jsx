@@ -1,30 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
-import { userService } from "../../services";
-import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { userSlice } from "../../lib/redux";
+import { LOGGING_IN } from "../../constant";
 
 export default function MobileLogin() {
+  const { setUserAccount, setAccountStatus } = userSlice.actions;
+  const dispatch = useDispatch();
+
   const onFinish = (values) => {
-    const user = {
+    const account = {
       taiKhoan: values.username,
       matKhau: values.password,
     };
 
-    userService
-      .login(user)
-      .then((res) => {
-        toast.success("Login Successful");
-      })
-      .catch((err) => {
-        toast.error("Incorrect username or password");
-      });
+    dispatch(setAccountStatus(LOGGING_IN));
+    dispatch(setUserAccount(account));
   };
 
   return (
-    <div className="flex flex-col items-center justify-start w-screen h-screen transition-all p-8 bg-white ">
-      <span className="block mt-4 mb-8 text-4xl font-medium text-black mr-auto">
+    <div className="flex flex-col items-center justify-start w-screen h-screen p-8 transition-all bg-white ">
+      <span className="block mt-4 mb-8 mr-auto text-4xl font-medium text-black">
         Login
       </span>
       <Form

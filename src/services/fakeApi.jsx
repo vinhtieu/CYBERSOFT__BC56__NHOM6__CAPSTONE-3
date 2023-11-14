@@ -13,45 +13,45 @@ export const userApi = axios.create({
   },
 });
 
-// Add a request interceptor
-cinemaApi.interceptors.request.use(
-  function (config) {
-    // Do something before request is sent
-    const { loadingOn } = loadingScreenSlice.actions;
-    store.dispatch(loadingOn());
-    return config;
-  },
-  function (error) {
-    // Do something with request error
-    const { loadingOff } = loadingScreenSlice.actions;
+// // Add a request interceptor
+// cinemaApi.interceptors.request.use(
+//   function (config) {
+//     // Do something before request is sent
+//     const { loadingOn } = loadingScreenSlice.actions;
+//     store.dispatch(loadingOn());
+//     return config;
+//   },
+//   function (error) {
+//     // Do something with request error
+//     const { loadingOff } = loadingScreenSlice.actions;
 
-    store.dispatch(loadingOff());
-    console.log("interceptors has errors");
-    return Promise.reject(error.message);
-  }
-);
+//     store.dispatch(loadingOff());
+//     console.log("interceptors has errors");
+//     return Promise.reject(error.message);
+//   }
+// );
 
-// Add a response interceptor
-cinemaApi.interceptors.response.use(
-  function (response) {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
+// // Add a response interceptor
+// cinemaApi.interceptors.response.use(
+//   function (response) {
+//     // Any status code that lie within the range of 2xx cause this function to trigger
+//     // Do something with response data
 
-    const { loadingOff } = loadingScreenSlice.actions;
-    setTimeout(() => {
-      store.dispatch(loadingOff());
-    }, 1000);
+//     const { loadingOff } = loadingScreenSlice.actions;
+//     setTimeout(() => {
+//       store.dispatch(loadingOff());
+//     }, 1000);
 
-    return response;
-  },
-  function (error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    const { loadingOff } = loadingScreenSlice.actions;
+//     return response;
+//   },
+//   function (error) {
+//     // Any status codes that falls outside the range of 2xx cause this function to trigger
+//     // Do something with response error
+//     const { loadingOff } = loadingScreenSlice.actions;
 
-    store.dispatch(loadingOff());
-    console.log("interceptors has errors");
+//     store.dispatch(loadingOff());
+//     console.log("interceptors has errors");
 
-    return Promise.reject(error);
-  }
-);
+//     return Promise.reject(error);
+//   }
+// );

@@ -10,7 +10,11 @@ export default function NowPlayingCard({ imgSrc }) {
         w-full aspect-[1/1.25] px-2 z-40 ml-auto mr-auto relative transition-all duration-[250ms]">
         <img
           className="object-cover object-bottom w-full h-full"
-          src={imgSrc}
+          src={imgSrc ? imgSrc : FALLBACK_IMG}
+          onError={(e) => {
+            e.target.src = FALLBACK_IMG;
+            e.target.onerror = null;
+          }}
           alt=""
         />
         <div className="detail">

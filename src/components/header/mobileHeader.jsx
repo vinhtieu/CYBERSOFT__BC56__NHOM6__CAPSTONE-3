@@ -23,6 +23,7 @@ export default function MobileHeader() {
       setIsScrolled(false);
     }
   };
+
   const handleResize = () => {
     if (window.innerWidth > 938.98) {
       dispatch(toggleNavMenu(false));
@@ -52,6 +53,7 @@ export default function MobileHeader() {
               fontFamily: "Archivo Black , sans-serif",
             }}
             onClick={() => {
+              dispatch(loadingOn());
               navigateTo("/");
             }}>
             <figure className="w-16 min-[1279.98px]:w-[3.2vw] transition-all">

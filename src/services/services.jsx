@@ -7,7 +7,7 @@ export const cinemaService = {
 };
 
 export const userService = {
-  login: (value) => {
+  requestLogin: (value) => {
     return userApi.post("/api/QuanLyNguoiDung/DangNhap", value);
   },
 };

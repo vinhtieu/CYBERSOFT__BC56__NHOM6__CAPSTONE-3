@@ -3,11 +3,22 @@ import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Overlay } from "../../components";
-import { LOGIN_BACKGROUND } from "../../constant";
+import { LOGGING_IN, LOGIN_BACKGROUND } from "../../constant";
+import { useDispatch } from "react-redux";
+import { userSlice } from "../../lib/redux";
 
 export default function DesktopLogin() {
+  const { setUserAccount, setAccountStatus } = userSlice.actions;
+  const dispatch = useDispatch();
+
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    const account = {
+      taiKhoan: values.username,
+      matKhau: values.password,
+    };
+
+    dispatch(setAccountStatus(LOGGING_IN));
+    dispatch(setUserAccount(account));
   };
 
   return (

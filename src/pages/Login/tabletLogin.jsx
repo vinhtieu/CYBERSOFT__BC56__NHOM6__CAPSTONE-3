@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Overlay } from "../../components";
-import { LOGIN_BACKGROUND } from "../../constant";
+import { LOGGING_IN, LOGIN_BACKGROUND } from "../../constant";
+import { useDispatch, useSelector } from "react-redux";
+import { userSlice } from "../../lib/redux";
 
 export default function TabletLogin() {
+  const { setUserAccount, setAccountStatus } = userSlice.actions;
+  const dispatch = useDispatch();
+
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-    console.log("Received values of form: ", values);
+    const account = {
+      taiKhoan: values.username,
+      matKhau: values.password,
+    };
+
+    dispatch(setAccountStatus(LOGGING_IN));
+    dispatch(setUserAccount(account));
   };
 
   return (
@@ -16,7 +26,7 @@ export default function TabletLogin() {
       <div className="relative w-screen h-screen">
         <Overlay />
         <div className="absolute z-10 flex flex-col items-center justify-start w-[24rem]  transition-all p-8 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md h-auto top-1/2 left-1/2">
-          <span className="block mt-4 mb-14 text-5xl font-medium text-black">
+          <span className="block mt-4 text-5xl font-medium text-black mb-14">
             Login
           </span>
           <Form
