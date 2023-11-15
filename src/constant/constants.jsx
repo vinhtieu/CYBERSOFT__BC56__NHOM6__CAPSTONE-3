@@ -41,3 +41,4 @@ export const FETCH_STATUS = {
 export const FETCHED = "FETCHED";
 export const NOT_FETCHED = "NOT_FETCHED";
 export const FETCHING = "FETCHING";
+export const FETCHED_FAILED = "FETCHED_FAILED";

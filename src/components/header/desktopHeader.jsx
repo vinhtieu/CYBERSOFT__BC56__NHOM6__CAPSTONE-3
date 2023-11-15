@@ -4,22 +4,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { LOGGING_OUT, LOG_IN, PAGE } from "../../constant";
 import { Dropdown } from "antd";
 import "./style.css";
-import { cinemaSlice, navMenuSlice, userSlice } from "../../lib/redux";
+import {
+  cinemaSlice,
+  loadingScreenSlice,
+  navMenuSlice,
+  userSlice,
+} from "../../lib/redux";
 
 export default function DesktopHeader() {
-  const AccountStatus = useSelector((state) => state.user.accountStatus);
+  const accountStatus = useSelector((state) => state.user.accountStatus);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { loadingOn } = loadingScreenSlice.actions;
   const { setPage } = navMenuSlice.actions;
   const { setAccountStatus } = userSlice.actions;
   const headerRef = useRef(0);
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
 
-  const HandleLogoutUser = () => {
-    console.log("Logout User");
-    localStorage.clear();
-    sessionStorage.clear();
-    window.location.href = "/";
+  const handleLogoutUser = () => {
+    dispatch(loadingOn());
+    setTimeout(() => {
+      dispatch(setAccountStatus(LOGGING_OUT));
+      localStorage.clear();
+      sessionStorage.clear();
+      navigateTo("/");
+    }, 1000);
   };
 
   //Dropdown Items
@@ -48,8 +57,7 @@ export default function DesktopHeader() {
       label: (
         <button
           onClick={() => {
-            dispatch(setAccountStatus(LOGGING_OUT));
-            HandleLogoutUser();
+            handleLogoutUser();
           }}>
           Log out
         </button>
@@ -82,7 +90,7 @@ export default function DesktopHeader() {
   const renderLoginNav = () => {
     return (
       <div
-        className=" text-white hover:text-[#ae1f22] text-xs lg:text-[14px] 2xl:text-[18px] transition-all duration-300 inline-block max-[939.98px]:hidden cursor-pointer"
+        className=" text-white hover:text-[#ae1f22] text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden cursor-pointer"
         href=""
         onClick={() => {
           navigateTo("/login");
@@ -110,7 +118,6 @@ export default function DesktopHeader() {
             className=" text-[#ad3639] cursor-pointer"
             onClick={() => {
               dispatch(setPage(PAGE.HOME));
-
               navigateTo("/");
             }}>
             <figure className="w-16 min-[1279.98px]:w-[3.2vw] transition-all">
@@ -134,7 +141,6 @@ export default function DesktopHeader() {
               className="p-2 hover:text-[#ae1f22] inline-block cursor-pointer"
               onClick={() => {
                 dispatch(setPage(PAGE.SHOW_TIMES));
-
                 navigateTo("/showtimes");
               }}>
               Showtimes
@@ -148,7 +154,7 @@ export default function DesktopHeader() {
               Promotion
             </div>
           </div>
-          {AccountStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
+          {accountStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
         </div>
       </div>
     </>

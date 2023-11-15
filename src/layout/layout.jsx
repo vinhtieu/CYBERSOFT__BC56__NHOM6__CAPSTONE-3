@@ -5,7 +5,6 @@ import { CSSTransition } from "react-transition-group";
 
 export default function Layout({ children }) {
   const isLoading = useSelector((state) => state.loadingScreen.isOn);
-  // const isLoading = true;
   const isNavMenuOpen = useSelector((state) => state.navMenu.isOpen);
 
   return (

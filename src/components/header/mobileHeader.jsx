@@ -2,18 +2,32 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
-import { navMenuSlice } from "../../lib/redux";
-import { PAGE } from "../../constant";
+import { loadingScreenSlice, navMenuSlice, userSlice } from "../../lib/redux";
+import { LOGGING_OUT, LOG_IN, PAGE } from "../../constant";
 import { Overlay } from "../../components";
 
 export default function MobileHeader() {
+  const accountStatus = useSelector((state) => state.user.accountStatus);
   const isNavMenuOpen = useSelector((state) => state.navMenu.isOpen);
   const activePage = useSelector((state) => state.navMenu.onPage);
+  const { loadingOn } = loadingScreenSlice.actions;
+  const { setAccountStatus } = userSlice.actions;
   const { toggleNavMenu, setPage } = navMenuSlice.actions;
   const [isScrolled, setIsScrolled] = useState(false);
   const navigateTo = useNavigate();
   const headerRef = useRef(0);
   const dispatch = useDispatch();
+
+  const handleLogoutUser = () => {
+    dispatch(loadingOn());
+    setTimeout(() => {
+      dispatch(setAccountStatus(LOGGING_OUT));
+      localStorage.clear();
+      sessionStorage.clear();
+      navigateTo("/");
+      dispatch(toggleNavMenu(false));
+    }, 1000);
+  };
 
   const handleScroll = () => {
     const component = headerRef.current.getBoundingClientRect();
@@ -28,6 +42,33 @@ export default function MobileHeader() {
     if (window.innerWidth > 938.98) {
       dispatch(toggleNavMenu(false));
     }
+  };
+
+  const renderUserNav = () => {
+    return (
+      <div
+        onClick={() => {
+          handleLogoutUser();
+        }}
+        className={` hover:text-white relative leading-10 cursor-pointer`}
+        href="">
+        Logout
+      </div>
+    );
+  };
+
+  const renderLoginNav = () => {
+    return (
+      <div
+        onClick={() => {
+          navigateTo("/login");
+          dispatch(toggleNavMenu(false));
+        }}
+        className={` hover:text-white relative leading-10 cursor-pointer`}
+        href="">
+        Login
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -125,14 +166,7 @@ export default function MobileHeader() {
               Promotion
             </div>
             <div className="w-full h-px bg-gray-700"></div>
-            <div
-              onClick={() => {
-                navigateTo("/login");
-              }}
-              className={` hover:text-white relative leading-10 cursor-pointer`}
-              href="">
-              Login
-            </div>
+            {accountStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
           </nav>
         </div>
         {/* //Overlay */}

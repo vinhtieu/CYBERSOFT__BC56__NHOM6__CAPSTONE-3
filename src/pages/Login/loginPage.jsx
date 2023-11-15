@@ -35,12 +35,22 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (AccountStatus === LOGGING_IN) {
+      const toastId = toast.loading("Checking", {
+        style: {
+          minWidth: "250px",
+        },
+      });
       userService
         .requestLogin(userAccount)
         .then((res) => {
           dispatch(setAccountStatus(LOG_IN));
           localStorage.setItem("currentUser", JSON.stringify(userAccount));
-          toast.success("Login Successful");
+          toast.success("Login Successful", {
+            id: toastId,
+            style: {
+              minWidth: "250px",
+            },
+          });
           setTimeout(() => {
             toast.remove();
             dispatch(setPage(PAGE.HOME));
@@ -49,7 +59,12 @@ const LoginPage = () => {
         })
         .catch((err) => {
           dispatch(setAccountStatus(LOG_OUT));
-          toast.error("Incorrect username or password");
+          toast.error("Incorrect username or password", {
+            id: toastId,
+            style: {
+              minWidth: "250px",
+            },
+          });
         });
     }
   }, [AccountStatus]);

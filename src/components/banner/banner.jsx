@@ -3,8 +3,9 @@ import { FALLBACK_IMG } from "../../constant";
 
 export default function Banner({ className, imgSrc }) {
   return (
-    <div className={`${className ? className : ""} `}>
-      <figure className="max-w-screen max-h-[1000px] ">
+    <div
+      className={`${className ? className : ""} hidden min-[888px]:block max`}>
+      <figure className="-w-screen max-h-[1000px] ">
         <img
           className="object-cover w-full h-full"
           src={imgSrc ? imgSrc : FALLBACK_IMG}
