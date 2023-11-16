@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import MobileShowtimes from "./mobileShowtimes";
+import TabletShowtimes from "./tabletShowtimes";
 import DesktopShowtimes from "./desktopShowtimes";
+import MobileShowtimes from "./mobileShowtimes";
 import { useMediaQuery } from "react-responsive";
 import "./style.css";
 
@@ -11,15 +12,17 @@ export default function ShowtimesPage() {
     return isDesktop ? children : null;
   };
 
+  const Tablet = ({ children }) => {
+    const isTablet = useMediaQuery({ minWidth: 666, maxWidth: 1149.98 });
+    return isTablet ? children : null;
+  };
+
   const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: 1149.98 });
-    return isMobile ? children : null;
+    const isTablet = useMediaQuery({ maxWidth: 665.98 });
+    return isTablet ? children : null;
   };
 
   const cinemaData = useSelector((state) => state.cinema.data);
-
-  console.log("showtimePage running");
-  console.log(cinemaData);
 
   return (
     <div className="flex-1 mt-[8rem] flex flex-col">
@@ -28,6 +31,12 @@ export default function ShowtimesPage() {
           <DesktopShowtimes list={cinemaData} />
         </div>
       </Desktop>
+
+      <Tablet>
+        <div className="w-[90%] h-500px flex-1  mr-auto ml-auto mx-2 p-2">
+          <TabletShowtimes list={cinemaData} />
+        </div>
+      </Tablet>
 
       <Mobile>
         <div className="w-[90%] h-500px flex-1  mr-auto ml-auto mx-2 p-2">

@@ -14,7 +14,7 @@ export default function Layout({ children }) {
           isNavMenuOpen || isLoading ? "overflow-hidden w-screen h-screen" : ""
         } min-h-screen flex flex-col `}>
         <CSSTransition
-          in={isLoading}
+          in={true}
           timeout={{
             appear: 1000,
             enter: 1000,

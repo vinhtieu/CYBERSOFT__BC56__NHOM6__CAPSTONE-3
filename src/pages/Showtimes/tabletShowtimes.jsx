@@ -67,8 +67,8 @@ export default function TabletShowtimes({ list }) {
       return (
         <div
           key={film.movieID}
-          className="w-full h-auto  grid-cols-[12rem,1fr] gap-6 py-4 flex flex-col">
-          <figure className="w-48 min-w-[28px] aspect-[11/17] block mb-0">
+          className="grid w-full h-auto  grid-cols-[12rem,1fr] gap-8 py-4 ">
+          <figure className="w-48 min-w-[28px] aspect-[11/17]">
             <img
               className="object-cover w-full h-full"
               src={film.poster}
@@ -82,9 +82,9 @@ export default function TabletShowtimes({ list }) {
               }}
             />
           </figure>
-          <div className="block">
-            <span className="block mb-8 text-xl font-semibold text-white ">
-              {film.title.toUpperCase()}
+          <div className="">
+            <span className="block mb-6 text-xl font-semibold text-white ">
+              {film.title}
             </span>
             <div className="flex flex-row flex-wrap gap-2">
               {getMovieSchedules(film.showtimeList)}
@@ -100,7 +100,7 @@ export default function TabletShowtimes({ list }) {
   return (
     <>
       <Dropdown className="" menu={{ items, onClick }}>
-        <div className="flex flex-row items-end gap-2 mb-4 mr-auto cursor-pointer w-fit justify-right">
+        <div className="flex flex-row items-end gap-2 mb-8 mr-auto cursor-pointer w-fit justify-right">
           <figure className="w-6 h-6">
             <img
               className="object-contain w-full h-full"
@@ -111,7 +111,7 @@ export default function TabletShowtimes({ list }) {
           <span className="text-base hover:text-white">Choose Cinema</span>
         </div>
       </Dropdown>
-      <h3 className="block max-[600px]:text-2xl text-4xl font-bold mb-8">
+      <h3 className="block max-[600px]:text-2xl text-4xl font-bold mt-10 mb-4">
         {cinemaName}
       </h3>
 
