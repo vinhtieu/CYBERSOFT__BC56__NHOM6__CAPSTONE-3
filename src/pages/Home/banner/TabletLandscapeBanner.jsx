@@ -54,7 +54,7 @@ export default function TabletLandscapeBanner() {
                       mt-[1.5vw] leading-[2.6vw]  w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-2  justify-start">
                       <img
                         className="w-10 h-10"
-                        src="src\assets\img\playIcon.svg"
+                        src="/assets/img/playIcon.svg"
                         alt=""
                       />
                       <span className="text-2xl font-medium">

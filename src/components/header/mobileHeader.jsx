@@ -100,7 +100,7 @@ export default function MobileHeader() {
             <figure className="w-16 min-[1279.98px]:w-[3.2vw] transition-all">
               <img
                 className="w-full h-full"
-                src="src\assets\img\lux_final-logo.png"
+                src="/assets/img/lux_final-logo.png"
                 alt=""
               />
             </figure>

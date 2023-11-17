@@ -104,7 +104,7 @@ export default function TabletShowtimes({ list }) {
           <figure className="w-6 h-6">
             <img
               className="object-contain w-full h-full"
-              src="src\assets\img\pin.svg"
+              src="/assets/img/pin.svg"
               alt=""
             />
           </figure>

@@ -13,7 +13,7 @@ const NextArrow = forwardRef((props, ref) => {
       className=" absolute top-[55%] -right-0 block z-50 group">
       <figure className="hidden  w-[88px] h-[88px]  ml-auto mr-auto group-hover:inline-block">
         <img
-          src="src\assets\img\pngaaa.com-3944443.png"
+          src="/assets/img/pngaaa.com-3944443.png"
           alt=""
           className="object-contain w-full h-full rotate-180"
         />
@@ -32,7 +32,7 @@ const PrevArrow = forwardRef((props, ref) => {
       className=" absolute top-[55%] -left-0 block z-50 group">
       <figure className="hidden ml-auto mr-auto w-[88px] h-[88px] group-hover:inline-block">
         <img
-          src="src\assets\img\pngaaa.com-3944443.png"
+          src="/assets/img/pngaaa.com-3944443.png"
           alt=""
           className="object-contain w-full h-full "
         />
@@ -116,7 +116,7 @@ export default function DesktopBanner() {
                       className="py-4 ps-[1.7rem] pe-[2.1rem] mt-[1.5vw] leading-[2.4vw] w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-4 justify-start">
                       <img
                         className="w-12 h-12"
-                        src="src\assets\img\playIcon.svg"
+                        src="/assets/img/playIcon.svg"
                         alt=""
                       />
                       <span className="text-2xl font-medium">

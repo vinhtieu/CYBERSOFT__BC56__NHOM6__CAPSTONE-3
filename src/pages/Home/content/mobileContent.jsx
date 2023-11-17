@@ -59,7 +59,7 @@ const MobileContent = () => {
               <figure className="w-12 h-12">
                 <img
                   className="object-contain w-full h-full cursor-pointer"
-                  src="src\assets\img\cross.png"
+                  src="/assets/img/cross.png"
                   alt=""
                 />
               </figure>
