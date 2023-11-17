@@ -33,12 +33,10 @@
   @apply px-0 py-0;
 }
 
-:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs
-  > .ant-tabs-nav
-  .ant-tabs-nav-more {
+.ant-tabs-nav-more {
   background: #ae1f22;
 }
 
-:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs .ant-tabs-ink-bar {
+.ant-tabs-ink-bar {
   background: #ae1f22;
 }

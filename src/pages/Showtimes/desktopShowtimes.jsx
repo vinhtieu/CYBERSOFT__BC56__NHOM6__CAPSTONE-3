@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { showtimesSlice } from "../../lib/redux";
+import React, { useState } from "react";
 import { Tabs } from "antd";
-// import { showtimesService } from "../../services";
-import "./style.css";
 import { FALLBACK_IMG } from "../../constant";
+import "./style.css";
 
 export default function DesktopShowtimes({ list }) {
   const [isImgError, setIsImgError] = useState(true);
