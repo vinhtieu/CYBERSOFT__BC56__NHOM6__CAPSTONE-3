@@ -1,10 +1,10 @@
 import React from "react";
 
 export default function Footer() {
-  const tweeterIcon = "src/assets/img/icons8-twitter.svg";
-  const facebookIcon = "src/assets/img/icons8-facebook-64.png";
-  const instaIcon = "src/assets/img/icons8-insta-50.png";
-  const linkedinIcon = "src/assets/img/icons8-linkedin.svg";
+  const tweeterIcon = "/assets/img/icons8-twitter.svg";
+  const facebookIcon = "/assets/img/icons8-facebook-64.png";
+  const instaIcon = "/assets/img/icons8-insta-50.png";
+  const linkedinIcon = "/assets/img/icons8-linkedin.svg";
 
   return (
     <footer className="w-full h-auto mt-auto bg-transparent">

@@ -12,10 +12,10 @@ export const FALLBACK_IMG =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
 
 //LOGIN
-export const LOGIN_BACKGROUND = "src/assets/img/background.avif";
+export const LOGIN_BACKGROUND = "/assets/img/background.avif";
 
 //REGISTER
-export const REGISTER_BACKGROUND = "src/assets/img/background.avif";
+export const REGISTER_BACKGROUND = "/assets/img/background.avif";
 
 //ACCOUNT_STATUS
 export const ACCOUNT_STATUS = {

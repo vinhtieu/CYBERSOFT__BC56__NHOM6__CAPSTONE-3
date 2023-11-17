@@ -24,7 +24,7 @@ export default function DesktopShowtimes({ list }) {
         children: (
           <Tabs
             style={{
-              height: "100%",
+              height: "600px",
             }}
             defaultActiveKey="1"
             tabPosition={"left"}
