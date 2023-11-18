@@ -6,14 +6,12 @@ import { NowPlayingCard, ComingSoonCard } from "../../../components/card";
 import ReactModal from "react-modal";
 import ReactPlayer from "react-player";
 
-// mt-10 sm:mt-12 lg:mt-16 xl:mt-20 2xl:mt-24
-
 const BigDesktopContent = () => {
   const nowPlayingMovieList = useSelector(
-    (state) => state.movieList.nowPlayingMovies
+    (state) => state.cinema.nowPlayingMovies
   );
   const comingSoonMovieList = useSelector(
-    (state) => state.movieList.comingSoonMovies
+    (state) => state.cinema.comingSoonMovies
   );
   const videoPlayOpen = useSelector((state) => state.videoPlayer.isOpen);
   const videoURL = useSelector((state) => state.videoPlayer.url);
@@ -58,7 +56,7 @@ const BigDesktopContent = () => {
               <figure className="w-12 h-12">
                 <img
                   className="object-contain w-full h-full cursor-pointer"
-                  src="src\assets\img\cross.png"
+                  src="/assets/img/cross.png"
                   alt=""
                 />
               </figure>

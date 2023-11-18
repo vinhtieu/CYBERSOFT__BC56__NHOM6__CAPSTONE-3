@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { FALLBACK_IMG } from "../../constant";
 
 export default function DesktopComingSoonCard({ imgSrc }) {
   return (
@@ -7,8 +8,13 @@ export default function DesktopComingSoonCard({ imgSrc }) {
       <figure
         className={`w-full aspect-[1/1.25] px-2 z-40 ml-auto mr-auto relative transition-all duration-[250ms]`}>
         <img
-          className="object-cover object-top w-full h-full"
-          src={imgSrc}
+          className="object-cover object-bottom w-full h-full"
+          src={imgSrc ? imgSrc : FALLBACK_IMG}
+          onError={(e) => {
+            console.log("this src is broken", imgSrc);
+            e.target.src = FALLBACK_IMG;
+            e.target.onerror = null;
+          }}
           alt=""
         />
         <div className="detail">

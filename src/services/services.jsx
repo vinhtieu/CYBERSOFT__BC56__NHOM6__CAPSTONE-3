@@ -1,10 +1,13 @@
-import { movieApi } from "./movieApi";
+import { cinemaApi, userApi } from "./fakeApi";
 
-export const movieService = {
-  getNowPlayingMovies: () => {
-    return movieApi.get("/NowPlayingMovies");
+export const cinemaService = {
+  getData: () => {
+    return cinemaApi.get("/cinema");
   },
-  getComingSoonMovies: () => {
-    return movieApi.get("/ComingSoonMovies");
+};
+
+export const userService = {
+  requestLogin: (value) => {
+    return userApi.post("/api/QuanLyNguoiDung/DangNhap", value);
   },
 };

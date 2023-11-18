@@ -11,7 +11,7 @@ const PrevArrow = forwardRef((props, ref) => {
       className="slick-prev absolute top-[1.5rem] left-[1vw] z-50 group block max-[1000px]:hidden ">
       <figure className="absolute left-0 hidden w-16 h-16 ml-auto mr-auto -translate-y-1/2 group-hover:inline-block top-1/2">
         <img
-          src="src\assets\img\pngaaa.com-3944443.png"
+          src="/assets/img/pngaaa.com-3944443.png"
           alt=""
           className="object-contain w-full h-full "
         />
@@ -30,7 +30,7 @@ const NextArrow = forwardRef((props, ref) => {
       className="slick-next  absolute top-[1.5rem] right-[1vw] z-50 group block max-[1000px]:hidden">
       <figure className="absolute right-0 hidden w-16 h-16 ml-auto mr-auto -translate-y-1/2 group-hover:inline-block top-1/2">
         <img
-          src="src\assets\img\pngaaa.com-3944443.png"
+          src="/assets/img/pngaaa.com-3944443.png"
           alt=""
           className="object-contain w-full h-full rotate-180"
         />

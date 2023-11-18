@@ -5,9 +5,7 @@ import { videoPlayerSlice } from "../../../lib/redux";
 
 export default function TabletPortraitBanner() {
   const slickRef = useRef(0);
-  const trendingMovieList = useSelector(
-    (state) => state.movieList.trendingMovies
-  );
+  const trendingMovieList = useSelector((state) => state.cinema.trendingMovies);
   const { openVideoPlayer, playVideo, setVideoURL } = videoPlayerSlice.actions;
   const dispatch = useDispatch();
 
@@ -56,7 +54,7 @@ export default function TabletPortraitBanner() {
                       mt-[1.2vw] leading-[2.6vw]  w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-2  justify-start">
                       <img
                         className="w-[2rem] h-[2rem] "
-                        src="src\assets\img\playIcon.svg"
+                        src="/assets/img/playIcon.svg"
                         alt=""
                       />
                       <span className="text-base font-medium">

@@ -1,8 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { FETCHED, NOT_FETCHED } from "../../constant";
+
+const nowPlayingList = sessionStorage.getItem("now_playing_movies");
+const comingSoonList = sessionStorage.getItem("coming_soon_movies");
+const cinemaData = sessionStorage.getItem("cinema_data");
 
 const initialState = {
+  data: JSON.parse(cinemaData) || [],
+  nowPlayingMovies: JSON.parse(nowPlayingList) || [],
+  comingSoonMovies: JSON.parse(comingSoonList) || [],
   trendingMovies: [
-    //Peaky Blinders
+    //Peaky Blindersy
     {
       poster:
         "https://occ-0-58-64.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABTh-QB9EbkineCZs98hzt9lg775u6gE_D6TPMudqtOg8hCB5Z8GiJZaMvr-vokSVYOMy1rHbHUH9J4Wp9B47ngoPdfxBUAFLKUrc.webp?r=15c",
@@ -34,21 +42,28 @@ const initialState = {
         "https://www.themoviedb.org/t/p/original/9F3H3K1nOxVOHoDZk1pgkEYwGdT.png",
     },
   ],
-  nowPlayingMovies: [],
-  comingSoonMovies: [],
+
+  fetchStatus: cinemaData ? FETCHED : NOT_FETCHED,
 };
 
-const movieListSlice = createSlice({
-  name: "movieList",
+const cinemaSlice = createSlice({
+  name: "cinema",
   initialState,
   reducers: {
+    setData: (state, actions) => {
+      state.data = actions.payload;
+      state.fetchStatus = FETCHED;
+    },
     setNowPlayingMovies: (state, action) => {
       state.nowPlayingMovies = action.payload;
     },
     setComingSoonMovies: (state, action) => {
       state.comingSoonMovies = action.payload;
     },
+    setFetchStatus: (state, action) => {
+      state.fetchStatus = action.payload;
+    },
   },
 });
 
-export default movieListSlice;
+export default cinemaSlice;
