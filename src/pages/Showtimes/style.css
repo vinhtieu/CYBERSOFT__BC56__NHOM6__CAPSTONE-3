@@ -13,32 +13,25 @@
   }
 }
 
-:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs .ant-tabs-content,
+/* :where(.css-dev-only-do-not-override-xu9wm8).ant-tabs .ant-tabs-content,
 :where(.css-dev-only-do-not-override-xu9wm8).ant-tabs-left
   > .ant-tabs-content-holder
   > .ant-tabs-content
   > .ant-tabs-tabpane {
   height: 100%;
+} */
+
+.ant-tabs-left > .ant-tabs-content-holder {
+  @apply !border-gray-400;
 }
 
-:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs-left
-  > .ant-tabs-content-holder {
-  @apply border-gray-400;
-}
-
-:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs-left
+.ant-tabs-left
   > .ant-tabs-content-holder
   > .ant-tabs-content
   > .ant-tabs-tabpane {
-  @apply px-0 py-0;
+  @apply !px-0 !py-0;
 }
 
-:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs
-  > .ant-tabs-nav
-  .ant-tabs-nav-more,
-:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs
-  > div
-  > .ant-tabs-nav
-  .ant-tabs-nav-more {
-  background: #ae1f22;
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-more {
+  background: #ae1f22 !important;
 }

@@ -49,6 +49,9 @@ export default function HomePage() {
         })
         .finally(() => {
           dispatch(setAccountStatus(LOG_OUT));
+          setTimeout(() => {
+            dispatch(loadingOff());
+          }, 1000);
         });
     };
 
@@ -57,11 +60,11 @@ export default function HomePage() {
     if (fetchStatus === NOT_FETCHED || accountStatus === LOGGING_OUT) {
       dispatch(setFetchStatus(FETCHING));
       fetchData();
+    } else {
+      setTimeout(() => {
+        dispatch(loadingOff());
+      }, 1000);
     }
-
-    setTimeout(() => {
-      dispatch(loadingOff());
-    }, 1000);
   }, [fetchStatus, accountStatus]);
 
   return (
