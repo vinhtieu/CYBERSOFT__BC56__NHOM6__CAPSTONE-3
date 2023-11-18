@@ -20,13 +20,12 @@ export default function HomePage() {
   const { setData, setNowPlayingMovies, setComingSoonMovies, setFetchStatus } =
     cinemaSlice.actions;
   const { setAccountStatus } = userSlice.actions;
-  const { loadingOff } = loadingScreenSlice.actions;
+  const { loadingOff, loadingOn } = loadingScreenSlice.actions;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (fetchStatus === NOT_FETCHED || accountStatus === LOGGING_OUT) {
-      dispatch(setFetchStatus(FETCHING));
-      Promise.all([cinemaService.getData()])
+    const fetchData = async () => {
+      await Promise.all([cinemaService.getData()])
         .then(([res]) => {
           const nowPlayingMovies = getNowPlayingMovies(res.data);
           const comingSoonMovies = getComingSoonMovies(res.data);
@@ -50,11 +49,19 @@ export default function HomePage() {
         })
         .finally(() => {
           dispatch(setAccountStatus(LOG_OUT));
-          setTimeout(() => {
-            dispatch(loadingOff());
-          }, 500);
         });
+    };
+
+    dispatch(loadingOn());
+
+    if (fetchStatus === NOT_FETCHED || accountStatus === LOGGING_OUT) {
+      dispatch(setFetchStatus(FETCHING));
+      fetchData();
     }
+
+    setTimeout(() => {
+      dispatch(loadingOff());
+    }, 1000);
   }, [fetchStatus, accountStatus]);
 
   return (

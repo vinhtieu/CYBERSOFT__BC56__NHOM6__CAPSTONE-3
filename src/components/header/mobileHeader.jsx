@@ -94,7 +94,7 @@ export default function MobileHeader() {
               fontFamily: "Archivo Black , sans-serif",
             }}
             onClick={() => {
-              dispatch(loadingOn());
+              dispatch(setPage(PAGE.HOME));
               navigateTo("/");
             }}>
             <figure className="w-16 min-[1279.98px]:w-[3.2vw] transition-all">
@@ -114,8 +114,8 @@ export default function MobileHeader() {
               className="w-full h-full"
               src={`${
                 isNavMenuOpen
-                  ? "src/assets/img/cross.png"
-                  : "src/assets/img/hamburger-icon.svg"
+                  ? "assets/img/cross.png"
+                  : "assets/img/hamburger-icon.svg"
               }`}
               alt=""
             />

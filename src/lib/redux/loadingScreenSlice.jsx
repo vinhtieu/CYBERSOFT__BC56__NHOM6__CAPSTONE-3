@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isOn: true,
+  isOn: false,
 };
 
 const loadingScreenSlice = createSlice({
