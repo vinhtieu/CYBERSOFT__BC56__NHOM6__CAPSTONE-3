@@ -21,7 +21,8 @@
   height: 100%;
 } */
 
-.ant-tabs-left > .ant-tabs-content-holder {
+.ant-tabs-left > .ant-tabs-content-holder,
+.ant-tabs > .ant-tabs-nav {
   @apply !border-gray-400;
 }
 
