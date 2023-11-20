@@ -89,13 +89,23 @@ export default function DesktopHeader() {
 
   const renderLoginNav = () => {
     return (
-      <div
-        className=" text-white hover:text-[#ae1f22] text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden cursor-pointer"
-        href=""
-        onClick={() => {
-          navigateTo("/login");
-        }}>
-        Log in
+      <div>
+        <div
+          className="mr-8 text-white hover:text-[#ae1f22] text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden cursor-pointer"
+          href=""
+          onClick={() => {
+            navigateTo("/login");
+          }}>
+          Log in
+        </div>
+        <div
+          className="border-2 border-white hover:border-[#ae1f22] hover:bg-[#ae1f22] p-3 px-4 rounded-md text-white  text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden cursor-pointer"
+          href=""
+          onClick={() => {
+            navigateTo("/register");
+          }}>
+          Register
+        </div>
       </div>
     );
   };
@@ -113,8 +123,8 @@ export default function DesktopHeader() {
         ref={headerRef}
         className={`fixed top-0 left-0 z-[100] h-24 2xl:h-28 w-full py-5 px-2 transition-all duration-300
       ${isScrolled ? "solid-background " : "gradient-background"}`}>
-        <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto  z-[95]">
-          <a
+        <div className="w-[90%] flex flex-row items-center justify-between h-full mx-auto  z-[95] relative">
+          <div
             className=" text-[#ad3639] cursor-pointer"
             onClick={() => {
               dispatch(setPage(PAGE.HOME));
@@ -127,8 +137,8 @@ export default function DesktopHeader() {
                 alt=""
               />
             </figure>
-          </a>
-          <div className="space-x-8 text-white text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden">
+          </div>
+          <div className="absolute left-1/2 -translate-x-1/2 space-x-8 text-white text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden">
             <div
               className="p-2 hover:text-[#ae1f22] inline-block cursor-pointer"
               onClick={() => {
