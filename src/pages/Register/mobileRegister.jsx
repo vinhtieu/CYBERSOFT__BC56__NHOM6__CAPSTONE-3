@@ -4,7 +4,6 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useDispatch } from "react-redux";
 import { userSlice } from "../../lib/redux";
-import { LOGGING_IN } from "../../constant";
 
 export default function MobileRegister() {
   const { setRegisterStatus, setRegisterAccount } = userSlice.actions;

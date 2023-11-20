@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LOGGING_IN, LOG_IN, LOGGING_OUT, LOG_OUT } from "../../constant";
+import { LOG_IN, LOG_OUT } from "../../constant";
 
 const userAccount = localStorage.getItem("currentUser");
 

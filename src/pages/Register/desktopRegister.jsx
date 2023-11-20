@@ -12,7 +12,7 @@ import {
   Row,
   Select,
 } from "antd";
-import { LOGIN_BACKGROUND, PROCESSING, REGISTERING } from "../../constant";
+import { LOGIN_BACKGROUND, PROCESSING } from "../../constant";
 import { useNavigate } from "react-router";
 import { userService } from "../../services/services";
 import { useDispatch } from "react-redux";

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { LOGGING_OUT, LOG_IN, PAGE } from "../../constant";
+import { LOGGING_OUT, LOG_IN, PAGE, PROCESSING } from "../../constant";
 import { Dropdown } from "antd";
 import "./style.css";
 import {
@@ -24,7 +24,7 @@ export default function DesktopHeader() {
   const handleLogoutUser = () => {
     dispatch(loadingOn());
     setTimeout(() => {
-      dispatch(setAccountStatus(LOGGING_OUT));
+      dispatch(setAccountStatus(PROCESSING));
       localStorage.clear();
       sessionStorage.clear();
       navigateTo("/");

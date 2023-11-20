@@ -5,12 +5,11 @@ import { cinemaSlice, loadingScreenSlice, userSlice } from "../../lib/redux";
 import HomeContent from "./homeContent";
 import { getComingSoonMovies, getNowPlayingMovies } from "../../lib/helper";
 import {
+  FAILED,
   FETCHED,
-  FETCHED_FAILED,
-  FETCHING,
-  LOGGING_OUT,
   LOG_OUT,
   NOT_FETCHED,
+  PROCESSING,
 } from "../../constant";
 import "./style.css";
 
@@ -45,7 +44,7 @@ export default function HomePage() {
         })
         .catch((err) => {
           console.log(err);
-          dispatch(setFetchStatus(FETCHED_FAILED));
+          dispatch(setFetchStatus(FAILED));
         })
         .finally(() => {
           dispatch(setAccountStatus(LOG_OUT));
@@ -57,8 +56,8 @@ export default function HomePage() {
 
     dispatch(loadingOn());
 
-    if (fetchStatus === NOT_FETCHED || accountStatus === LOGGING_OUT) {
-      dispatch(setFetchStatus(FETCHING));
+    if (fetchStatus === NOT_FETCHED || accountStatus === PROCESSING) {
+      dispatch(setFetchStatus(PROCESSING));
       fetchData();
     } else {
       setTimeout(() => {

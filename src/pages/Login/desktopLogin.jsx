@@ -3,7 +3,7 @@ import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Overlay } from "../../components";
-import { LOGGING_IN, LOGIN_BACKGROUND } from "../../constant";
+import { PROCESSING, LOGIN_BACKGROUND } from "../../constant";
 import { useDispatch } from "react-redux";
 import { userSlice } from "../../lib/redux";
 
@@ -17,7 +17,7 @@ export default function DesktopLogin() {
       matKhau: values.password,
     };
 
-    dispatch(setAccountStatus(LOGGING_IN));
+    dispatch(setAccountStatus(PROCESSING));
     dispatch(setUserAccount(account));
   };
 

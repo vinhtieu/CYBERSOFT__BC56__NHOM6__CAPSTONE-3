@@ -18,27 +18,28 @@ export const LOGIN_BACKGROUND = "/assets/img/background.avif";
 export const REGISTER_BACKGROUND = "/assets/img/background.avif";
 
 //ACCOUNT_STATUS
-export const ACCOUNT_STATUS = {
-  LOG_IN: "LOG_IN",
-  LOGGING_IN: "LOGGING_IN",
-  LOG_OUT: "LOG_OUT",
-  LOGGING_OUT: "LOGGING_OUT",
-};
+// export const ACCOUNT_STATUS = {
+//   LOG_IN: "LOG_IN",
+//   LOGGING_IN: "LOGGING_IN",
+//   LOG_OUT: "LOG_OUT",
+//   LOGGING_OUT: "LOGGING_OUT",
+// };
 
 export const LOG_IN = "LOG_IN";
-export const LOGGING_IN = "LOGGING_IN";
 export const LOG_OUT = "LOG_OUT";
 export const LOGGING_OUT = "LOGGING_OUT";
+export const PROCESSING = "PROCESSING";
+export const FAILED = "FAILED";
+export const REGISTERED = "REGISTERED";
+export const STAND_BY = "STAND_BY";
 
 //FETCH STATUS
 
-export const FETCH_STATUS = {
-  FETCHED: "FETCHED",
-  NOT_FETCHED: "NOT_FETCHED",
-  FETCHING: "FETCHING",
-};
+// export const FETCH_STATUS = {
+//   FETCHED: "FETCHED",
+//   NOT_FETCHED: "NOT_FETCHED",
+//   FETCHING: "FETCHING",
+// };
 
 export const FETCHED = "FETCHED";
 export const NOT_FETCHED = "NOT_FETCHED";
-export const FETCHING = "FETCHING";
-export const FETCHED_FAILED = "FETCHED_FAILED";

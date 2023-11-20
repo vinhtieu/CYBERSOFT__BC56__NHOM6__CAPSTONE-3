@@ -7,7 +7,7 @@ import { userService } from "../../services";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { LOGGING_IN, LOG_IN, LOG_OUT, PAGE } from "../../constant";
+import { LOG_IN, LOG_OUT, PAGE, PROCESSING } from "../../constant";
 import { navMenuSlice, userSlice } from "../../lib/redux";
 
 const Desktop = ({ children }) => {
@@ -26,15 +26,15 @@ const Mobile = ({ children }) => {
 };
 
 const LoginPage = () => {
-  const userAccount = useSelector((state) => state.user.account);
-  const AccountStatus = useSelector((state) => state.user.accountStatus);
-  const { setAccountStatus } = userSlice.actions;
+  const userAccount = useSelector((state) => state.user.userAccount);
+  const userStatus = useSelector((state) => state.user.userStatus);
+  const { setUserStatus } = userSlice.actions;
   const { setPage } = navMenuSlice.actions;
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
 
   useEffect(() => {
-    if (AccountStatus === LOGGING_IN) {
+    if (userStatus === PROCESSING) {
       const toastId = toast.loading("Checking", {
         style: {
           minWidth: "250px",
@@ -43,7 +43,7 @@ const LoginPage = () => {
       userService
         .requestLogin(userAccount)
         .then((res) => {
-          dispatch(setAccountStatus(LOG_IN));
+          dispatch(setUserStatus(LOG_IN));
           localStorage.setItem("currentUser", JSON.stringify(userAccount));
           toast.success("Login Successful", {
             id: toastId,
@@ -58,7 +58,7 @@ const LoginPage = () => {
           }, 1000);
         })
         .catch((err) => {
-          dispatch(setAccountStatus(LOG_OUT));
+          dispatch(setUserStatus(LOG_OUT));
           toast.error("Incorrect username or password", {
             id: toastId,
             style: {
@@ -67,7 +67,7 @@ const LoginPage = () => {
           });
         });
     }
-  }, [AccountStatus]);
+  }, [userStatus]);
 
   return (
     <>

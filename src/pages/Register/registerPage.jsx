@@ -4,17 +4,7 @@ import { userService } from "../../services";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import {
-  FAILED,
-  LOGGING_IN,
-  LOG_IN,
-  LOG_OUT,
-  PAGE,
-  PROCESSING,
-  REGISTER,
-  REGISTERED,
-  STAND_BY,
-} from "../../constant";
+import { FAILED, PAGE, PROCESSING, REGISTERED, STAND_BY } from "../../constant";
 import { navMenuSlice, userSlice } from "../../lib/redux";
 import DesktopRegister from "./desktopRegister";
 import TabletRegister from "./tabletRegister";

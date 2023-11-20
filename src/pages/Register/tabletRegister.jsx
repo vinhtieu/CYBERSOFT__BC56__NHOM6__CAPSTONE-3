@@ -3,7 +3,7 @@ import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Overlay } from "../../components";
-import { LOGGING_IN, LOGIN_BACKGROUND } from "../../constant";
+import { LOGIN_BACKGROUND } from "../../constant";
 import { useDispatch, useSelector } from "react-redux";
 import { userSlice } from "../../lib/redux";
 

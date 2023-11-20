@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loadingScreenSlice, navMenuSlice, userSlice } from "../../lib/redux";
-import { LOGGING_OUT, LOG_IN, PAGE } from "../../constant";
+import { LOGGING_OUT, LOG_IN, PAGE, PROCESSING } from "../../constant";
 import { Overlay } from "../../components";
 
 export default function MobileHeader() {
@@ -21,7 +21,7 @@ export default function MobileHeader() {
   const handleLogoutUser = () => {
     dispatch(loadingOn());
     setTimeout(() => {
-      dispatch(setAccountStatus(LOGGING_OUT));
+      dispatch(setAccountStatus(PROCESSING));
       localStorage.clear();
       sessionStorage.clear();
       navigateTo("/");
