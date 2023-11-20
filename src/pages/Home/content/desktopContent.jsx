@@ -8,10 +8,10 @@ import ReactPlayer from "react-player";
 
 const DesktopContent = () => {
   const nowPlayingMovieList = useSelector(
-    (state) => state.movieList.nowPlayingMovies
+    (state) => state.cinema.nowPlayingMovies
   );
   const comingSoonMovieList = useSelector(
-    (state) => state.movieList.comingSoonMovies
+    (state) => state.cinema.comingSoonMovies
   );
   const videoPlayOpen = useSelector((state) => state.videoPlayer.isOpen);
   const videoURL = useSelector((state) => state.videoPlayer.url);
@@ -56,7 +56,7 @@ const DesktopContent = () => {
               <figure className="w-12 h-12">
                 <img
                   className="object-contain w-full h-full cursor-pointer"
-                  src="src\assets\img\cross.png"
+                  src="/assets/img/cross.png"
                   alt=""
                 />
               </figure>

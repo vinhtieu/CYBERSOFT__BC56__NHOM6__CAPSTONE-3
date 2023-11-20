@@ -10,10 +10,10 @@ const NextArrow = forwardRef((props, ref) => {
         ref.current.slickNext();
       }}
       type="button"
-      className=" absolute top-[55%] right-[.5vw] block z-50 group">
+      className="absolute top-[55%] right-[.5vw] block z-50 group">
       <figure className="hidden w-24 h-24 ml-auto mr-auto group-hover:inline-block">
         <img
-          src="src\assets\img\pngaaa.com-3944443.png"
+          src="/assets/img/pngaaa.com-3944443.png"
           alt=""
           className="object-contain w-full h-full rotate-180"
         />
@@ -32,7 +32,7 @@ const PrevArrow = forwardRef((props, ref) => {
       className=" absolute top-[55%] left-[.5vw] block z-50 group ">
       <figure className="hidden w-24 h-24 ml-auto mr-auto group-hover:inline-block">
         <img
-          src="src\assets\img\pngaaa.com-3944443.png"
+          src="/assets/img/pngaaa.com-3944443.png"
           alt=""
           className="object-contain w-full h-full "
         />
@@ -43,9 +43,7 @@ const PrevArrow = forwardRef((props, ref) => {
 
 export default function BigDesktopBanner() {
   const slickRef = useRef(0);
-  const trendingMovieList = useSelector(
-    (state) => state.movieList.trendingMovies
-  );
+  const trendingMovieList = useSelector((state) => state.cinema.trendingMovies);
   const { openVideoPlayer, playVideo, setVideoURL } = videoPlayerSlice.actions;
   const dispatch = useDispatch();
 
@@ -94,7 +92,7 @@ export default function BigDesktopBanner() {
                       className="py-4 ps-[1.7rem] pe-[2.1rem] mt-[1.5vw] leading-[2.4vw] w-fit bg-[#ae1f22] rounded-md flex flex-row items-center gap-4 justify-start">
                       <img
                         className="w-14 h-14"
-                        src="src\assets\img\playIcon.svg"
+                        src="/assets/img/playIcon.svg"
                         alt=""
                       />
                       <span className="text-3xl font-medium">
