@@ -3,6 +3,44 @@ import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import { videoPlayerSlice } from "../../../lib/redux";
 
+const NextArrow = forwardRef((props, ref) => {
+  return (
+    <button
+      onClick={() => {
+        ref.current.slickNext();
+      }}
+      type="button"
+      className=" absolute top-[55%] -right-0 block z-50 group">
+      <figure className="hidden  w-[48px] h-[48px]  ml-auto mr-auto group-hover:inline-block">
+        <img
+          src="/assets/img/pngaaa.com-3944443.png"
+          alt=""
+          className="object-contain w-full h-full rotate-180"
+        />
+      </figure>
+    </button>
+  );
+});
+
+const PrevArrow = forwardRef((props, ref) => {
+  return (
+    <button
+      onClick={() => {
+        ref.current.slickPrev();
+      }}
+      type="button"
+      className=" absolute top-[55%] -left-0 block z-50 group">
+      <figure className="hidden ml-auto mr-auto  w-[48px] h-[48px]  group-hover:inline-block">
+        <img
+          src="/assets/img/pngaaa.com-3944443.png"
+          alt=""
+          className="object-contain w-full h-full "
+        />
+      </figure>
+    </button>
+  );
+});
+
 export default function TabletPortraitBanner() {
   const slickRef = useRef(0);
   const trendingMovieList = useSelector((state) => state.cinema.trendingMovies);
@@ -10,6 +48,8 @@ export default function TabletPortraitBanner() {
   const dispatch = useDispatch();
 
   const settings = {
+    prevArrow: <PrevArrow ref={slickRef} />,
+    nextArrow: <NextArrow ref={slickRef} />,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
@@ -17,7 +57,7 @@ export default function TabletPortraitBanner() {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
+    arrows: true,
     vertical: false,
   };
 

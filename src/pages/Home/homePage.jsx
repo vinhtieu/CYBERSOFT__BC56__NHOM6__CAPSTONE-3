@@ -7,6 +7,7 @@ import { getComingSoonMovies, getNowPlayingMovies } from "../../lib/helper";
 import {
   FAILED,
   FETCHED,
+  LOGGING_OUT,
   LOG_OUT,
   NOT_FETCHED,
   PROCESSING,
@@ -15,10 +16,10 @@ import "./style.css";
 
 export default function HomePage() {
   const fetchStatus = useSelector((state) => state.cinema.fetchStatus);
-  const accountStatus = useSelector((state) => state.user.accountStatus);
+  const userStatus = useSelector((state) => state.user.userStatus);
   const { setData, setNowPlayingMovies, setComingSoonMovies, setFetchStatus } =
     cinemaSlice.actions;
-  const { setAccountStatus } = userSlice.actions;
+  const { setUserStatus } = userSlice.actions;
   const { loadingOff, loadingOn } = loadingScreenSlice.actions;
   const dispatch = useDispatch();
 
@@ -47,16 +48,14 @@ export default function HomePage() {
           dispatch(setFetchStatus(FAILED));
         })
         .finally(() => {
-          dispatch(setAccountStatus(LOG_OUT));
+          dispatch(setUserStatus(LOG_OUT));
           setTimeout(() => {
             dispatch(loadingOff());
           }, 1000);
         });
     };
 
-    dispatch(loadingOn());
-
-    if (fetchStatus === NOT_FETCHED || accountStatus === PROCESSING) {
+    if (fetchStatus === NOT_FETCHED || userStatus === LOGGING_OUT) {
       dispatch(setFetchStatus(PROCESSING));
       fetchData();
     } else {
@@ -64,7 +63,7 @@ export default function HomePage() {
         dispatch(loadingOff());
       }, 1000);
     }
-  }, [fetchStatus, accountStatus]);
+  }, [fetchStatus, userStatus]);
 
   return (
     <>

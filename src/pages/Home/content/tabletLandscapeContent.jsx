@@ -26,7 +26,11 @@ const TabletLandscapeContent = () => {
       <Carousel className="mb-24">
         {nowPlayingMovieList.map((movie, index) => {
           return (
-            <NowPlayingCard key={index} imgSrc={movie.poster}></NowPlayingCard>
+            <NowPlayingCard
+              key={index}
+              imgSrc={movie.poster}
+              listType="nowPlaying"
+              movieID={movie.movieID}></NowPlayingCard>
           );
         })}
       </Carousel>
@@ -36,7 +40,11 @@ const TabletLandscapeContent = () => {
       <Carousel className="mb-24">
         {comingSoonMovieList.map((movie, index) => {
           return (
-            <ComingSoonCard key={index} imgSrc={movie.poster}></ComingSoonCard>
+            <ComingSoonCard
+              key={index}
+              imgSrc={movie.poster}
+              listType="comingSoon"
+              movieID={movie.movieID}></ComingSoonCard>
           );
         })}
       </Carousel>

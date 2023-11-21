@@ -8,8 +8,8 @@ const PrevArrow = forwardRef((props, ref) => {
         ref.current.slickPrev();
       }}
       type="button"
-      className="slick-prev absolute top-[1.5rem] left-[1vw] z-50 group block max-[1000px]:hidden ">
-      <figure className="absolute left-0 hidden w-16 h-16 ml-auto mr-auto -translate-y-1/2 group-hover:inline-block top-1/2">
+      className="slick-prev absolute top-[1.5rem] left-[1vw] z-50 group block">
+      <figure className="absolute left-0 ml-auto mr-auto -translate-y-1/2 w-14 h-14 group-hover:inline-block top-1/2">
         <img
           src="/assets/img/pngaaa.com-3944443.png"
           alt=""
@@ -27,8 +27,8 @@ const NextArrow = forwardRef((props, ref) => {
         ref.current.slickNext();
       }}
       type="button"
-      className="slick-next  absolute top-[1.5rem] right-[1vw] z-50 group block max-[1000px]:hidden">
-      <figure className="absolute right-0 hidden w-16 h-16 ml-auto mr-auto -translate-y-1/2 group-hover:inline-block top-1/2">
+      className="slick-next  absolute top-[1.5rem] right-[1vw] z-50 group block ">
+      <figure className="absolute right-0 ml-auto mr-auto -translate-y-1/2 w-14 h-14 group-hover:inline-block top-1/2">
         <img
           src="/assets/img/pngaaa.com-3944443.png"
           alt=""
@@ -74,7 +74,7 @@ const Carousel = ({ className, children }) => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
-          arrows: false,
+          arrows: true,
         },
       },
       {
@@ -82,7 +82,7 @@ const Carousel = ({ className, children }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          arrows: false,
+          arrows: true,
         },
       },
       {
@@ -90,7 +90,7 @@ const Carousel = ({ className, children }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: false,
+          arrows: true,
         },
       },
     ],

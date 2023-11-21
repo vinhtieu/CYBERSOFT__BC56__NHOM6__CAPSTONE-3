@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.css";
-import { FALLBACK_IMG } from "../../constant";
+import { COMING_SOON, FALLBACK_IMG, NOW_PLAYING } from "../../constant";
+import { useNavigate } from "react-router-dom";
 
-export default function DesktopComingSoonCard({ imgSrc }) {
+export default function ComingSoonCard({ imgSrc, listType, movieID }) {
+  const navigateTo = useNavigate();
   return (
     <div className="card">
       <figure
@@ -19,7 +21,11 @@ export default function DesktopComingSoonCard({ imgSrc }) {
         />
         <div className="detail">
           <div className="z-50 flex flex-col items-center justify-center w-full h-full gap-10 bg-black bg-opacity-60">
-            <button className="px-8 py-4 bg-transparent text-white text-center border-2 border-solid border-white rounded hover:bg-[#ae1f22] hover:border-[#ae1f22] transition-all duration-200">
+            <button
+              onClick={() => {
+                navigateTo(`/detail/${listType}-${movieID}`);
+              }}
+              className="px-8 py-4 bg-transparent text-white text-center border-2 border-solid border-white rounded hover:bg-[#ae1f22] hover:border-[#ae1f22] transition-all duration-200">
               Detail
             </button>
           </div>

@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { userService } from "../../services";
 import { useDispatch, useSelector } from "react-redux";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FAILED, PAGE, PROCESSING, REGISTERED, STAND_BY } from "../../constant";
 import { navMenuSlice, userSlice } from "../../lib/redux";
 import DesktopRegister from "./desktopRegister";
 import TabletRegister from "./tabletRegister";
 import MobileRegister from "./mobileRegister";
+import toast from "react-hot-toast";
 
 const Desktop = ({ children }) => {
   const isDesktop = useMediaQuery({ minWidth: 940 });
@@ -59,8 +59,7 @@ const RegisterPage = () => {
         })
         .catch((err) => {
           dispatch(setRegisterStatus(FAILED));
-          console.log(err);
-          toast.error(`${err}`, {
+          toast.error(`Something went wrong`, {
             id: toastId,
             style: {
               minWidth: "250px",

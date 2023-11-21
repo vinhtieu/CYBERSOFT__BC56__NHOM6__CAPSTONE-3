@@ -12,11 +12,11 @@ import {
 } from "../../lib/redux";
 
 export default function DesktopHeader() {
-  const accountStatus = useSelector((state) => state.user.accountStatus);
+  const userStatus = useSelector((state) => state.user.userStatus);
   const [isScrolled, setIsScrolled] = useState(false);
   const { loadingOn } = loadingScreenSlice.actions;
   const { setPage } = navMenuSlice.actions;
-  const { setAccountStatus } = userSlice.actions;
+  const { setUserStatus } = userSlice.actions;
   const headerRef = useRef(0);
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export default function DesktopHeader() {
   const handleLogoutUser = () => {
     dispatch(loadingOn());
     setTimeout(() => {
-      dispatch(setAccountStatus(PROCESSING));
+      dispatch(setUserStatus(LOGGING_OUT));
       localStorage.clear();
       sessionStorage.clear();
       navigateTo("/");
@@ -138,7 +138,7 @@ export default function DesktopHeader() {
               />
             </figure>
           </div>
-          <div className="absolute left-1/2 -translate-x-1/2 space-x-8 text-white text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden">
+          <div className="absolute left-1/2 -translate-x-1/2 space-x-4 2xl:space-x-8 text-white text-lg lg:text-xl 2xl:text-2xl transition-all duration-300 inline-block max-[939.98px]:hidden">
             <div
               className="p-2 hover:text-[#ae1f22] inline-block cursor-pointer"
               onClick={() => {
@@ -164,7 +164,7 @@ export default function DesktopHeader() {
               Promotion
             </div>
           </div>
-          {accountStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
+          {userStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
         </div>
       </div>
     </>

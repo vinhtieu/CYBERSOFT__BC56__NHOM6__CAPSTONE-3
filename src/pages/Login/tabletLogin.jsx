@@ -3,12 +3,12 @@ import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Overlay } from "../../components";
-import { LOGIN_BACKGROUND, PROCESSING } from "../../constant";
+import { LOGGING_IN, LOGIN_BACKGROUND } from "../../constant";
 import { useDispatch, useSelector } from "react-redux";
 import { userSlice } from "../../lib/redux";
 
 export default function TabletLogin() {
-  const { setUserAccount, setAccountStatus } = userSlice.actions;
+  const { setUserAccount, setUserStatus } = userSlice.actions;
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
@@ -17,7 +17,7 @@ export default function TabletLogin() {
       matKhau: values.password,
     };
 
-    dispatch(setAccountStatus(PROCESSING));
+    dispatch(setUserStatus(LOGGING_IN));
     dispatch(setUserAccount(account));
   };
 

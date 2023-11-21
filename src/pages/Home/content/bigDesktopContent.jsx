@@ -26,24 +26,31 @@ const BigDesktopContent = () => {
       <Carousel className="mb-32">
         {nowPlayingMovieList.map((movie, index) => {
           return (
-            <NowPlayingCard key={index} imgSrc={movie.poster}></NowPlayingCard>
+            <NowPlayingCard
+              key={index}
+              imgSrc={movie.poster}
+              listType="nowPlaying"
+              movieID={movie.movieID}></NowPlayingCard>
           );
         })}
       </Carousel>
       <div className="block w-[90%] ml-auto px-2 mr-auto mb-5  text-white text-4xl  leading-[1.5vw] font-bold z-50 relative">
         Coming Soon
       </div>
-      <Carousel className="mb-32 ">
+      <Carousel className="mb-32">
         {comingSoonMovieList.map((movie, index) => {
           return (
-            <ComingSoonCard key={index} imgSrc={movie.poster}></ComingSoonCard>
+            <ComingSoonCard
+              key={index}
+              imgSrc={movie.poster}
+              listType="comingSoon"
+              movieID={movie.movieID}></ComingSoonCard>
           );
         })}
       </Carousel>
       <ReactModal
         isOpen={videoPlayOpen}
         onRequestClose={() => {
-          console.log("request closing modal");
           dispatch(closeVideoPlayer());
           dispatch(pauseVideo());
         }}

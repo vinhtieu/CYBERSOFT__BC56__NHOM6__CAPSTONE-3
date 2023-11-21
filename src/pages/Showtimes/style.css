@@ -13,13 +13,13 @@
   }
 }
 
-/* :where(.css-dev-only-do-not-override-xu9wm8).ant-tabs .ant-tabs-content,
+:where(.css-dev-only-do-not-override-xu9wm8).ant-tabs .ant-tabs-content,
 :where(.css-dev-only-do-not-override-xu9wm8).ant-tabs-left
   > .ant-tabs-content-holder
   > .ant-tabs-content
   > .ant-tabs-tabpane {
   height: 100%;
-} */
+}
 
 .ant-tabs-left > .ant-tabs-content-holder,
 .ant-tabs > .ant-tabs-nav {

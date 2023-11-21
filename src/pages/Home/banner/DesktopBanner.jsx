@@ -50,7 +50,7 @@ export default function DesktopBanner() {
   const settings = {
     prevArrow: <PrevArrow ref={slickRef} />,
     nextArrow: <NextArrow ref={slickRef} />,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 3000,
     pauseOnHover: true,
     infinite: true,
     speed: 1000,
@@ -58,32 +58,8 @@ export default function DesktopBanner() {
     slidesToScroll: 1,
     arrows: true,
     vertical: false,
-    // responsive: [
-    //   {
-    //     breakpoint: 1280,
-    //     settings: {
-    //       autoplay: true,
-    //       arrows: false,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 940,
-    //     settings: {
-    //       autoplay: true,
-    //       arrows: false,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 666,
-    //     settings: {
-    //       autoplay: true,
-    //       arrows: false,
-    //     },
-    //   },
-    // ],
   };
 
-  500 - 90;
   return (
     <div className="pb-[40%] mb-[20px] select-none relative">
       <div className="absolute top-0 bottom-0 left-0 right-0">

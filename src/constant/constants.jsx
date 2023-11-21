@@ -26,6 +26,7 @@ export const REGISTER_BACKGROUND = "/assets/img/background.avif";
 // };
 
 export const LOG_IN = "LOG_IN";
+export const LOGGING_IN = "LOGGING_IN";
 export const LOG_OUT = "LOG_OUT";
 export const LOGGING_OUT = "LOGGING_OUT";
 export const PROCESSING = "PROCESSING";

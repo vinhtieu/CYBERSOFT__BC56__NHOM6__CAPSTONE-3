@@ -3,12 +3,12 @@ import "./style.css";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { Overlay } from "../../components";
-import { PROCESSING, LOGIN_BACKGROUND } from "../../constant";
+import { LOGGING_IN, LOGIN_BACKGROUND } from "../../constant";
 import { useDispatch } from "react-redux";
 import { userSlice } from "../../lib/redux";
 
 export default function DesktopLogin() {
-  const { setUserAccount, setAccountStatus } = userSlice.actions;
+  const { setUserAccount, setUserStatus } = userSlice.actions;
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
@@ -17,7 +17,7 @@ export default function DesktopLogin() {
       matKhau: values.password,
     };
 
-    dispatch(setAccountStatus(PROCESSING));
+    dispatch(setUserStatus(LOGGING_IN));
     dispatch(setUserAccount(account));
   };
 
@@ -25,8 +25,8 @@ export default function DesktopLogin() {
     <>
       <div className="relative w-screen h-screen">
         <Overlay />
-        <div className="absolute z-10 flex flex-col items-center justify-start w-[26rem] transition-all p-8 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md h-2/4 top-1/2 left-1/2">
-          <span className="block mt-4 mb-20 text-5xl font-medium text-black">
+        <div className="absolute z-10 flex flex-col items-center justify-start w-[26rem] transition-all p-6 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md h-2/3 top-1/2 left-1/2">
+          <span className="block mt-4 mb-16 text-5xl font-medium text-black">
             Login
           </span>
           <Form
@@ -92,7 +92,7 @@ export default function DesktopLogin() {
             </Form.Item>
           </Form>
           <span className="mt-auto">
-            Don't have an account?
+            Don't have an account? &nbsp;
             <a
               className="transition-all text-[#ad3639] hover:text-[#b73a3e]"
               href="/">

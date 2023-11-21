@@ -23,10 +23,42 @@ body {
 }
 
 .slick-next {
-  right: 1vw;
+  opacity: 50%;
+  right: 0vw;
 }
 .slick-prev {
-  left: 1vw;
+  opacity: 50%;
+  left: 0vw;
+}
+
+@media screen and (min-width: 1280px) {
+  .slick-next {
+    right: 1vw;
+  }
+  .slick-prev {
+    left: 1vw;
+  }
+}
+
+@media screen and (min-width: 666px) and (max-width: 1279.98px) {
+  .slick-next figure {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .slick-prev figure {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+@media screen and (max-width: 665.98px) {
+  .slick-next figure {
+    width: 2rem;
+    height: 2rem;
+  }
+  .slick-prev figure {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .slick-track {

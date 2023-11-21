@@ -5,8 +5,9 @@ import {
   HomePage,
   ShowtimesPage,
   LoginPage,
-  Promotion,
+  PromotionPage,
   RegisterPage,
+  DetailPage,
 } from "./pages";
 import Layout from "./layout";
 import { Toaster } from "react-hot-toast";
@@ -38,7 +39,15 @@ function App() {
             path="/promotion"
             element={
               <Layout>
-                <Promotion />
+                <PromotionPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/detail/:id"
+            element={
+              <Layout>
+                <DetailPage />
               </Layout>
             }
           />

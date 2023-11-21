@@ -57,34 +57,36 @@ export default function DesktopShowtimes({ list }) {
 
   const renderMovies = (movies) => {
     return movies.map((film) => {
-      return (
-        <div
-          key={film.movieID}
-          className="grid w-full h-auto  grid-cols-[8rem,1fr] gap-8 p-4 ">
-          <figure className="w-36 min-w-[28px]  aspect-[11/17]">
-            <img
-              className="object-cover w-full h-full"
-              src={film.poster}
-              alt={film.title}
-              onError={(e) => {
-                if (isImgError) {
-                  setIsImgError(false);
-                  e.target.onerror = null;
-                  e.target.src = FALLBACK_IMG;
-                }
-              }}
-            />
-          </figure>
-          <div className="">
-            <span className="block mb-6 text-xl font-semibold text-white ">
-              {film.title}
-            </span>
-            <div className="flex flex-row flex-wrap gap-2">
-              {renderMovieSchedules(film.showtimeList)}
+      if (film.nowPlaying === true) {
+        return (
+          <div
+            key={film.movieID}
+            className="grid w-full h-auto  grid-cols-[8rem,1fr] gap-8 p-4 ">
+            <figure className="w-36 min-w-[28px]  aspect-[11/17]">
+              <img
+                className="object-cover w-full h-full"
+                src={film.poster}
+                alt={film.title}
+                onError={(e) => {
+                  if (isImgError) {
+                    setIsImgError(false);
+                    e.target.onerror = null;
+                    e.target.src = FALLBACK_IMG;
+                  }
+                }}
+              />
+            </figure>
+            <div className="">
+              <span className="block mb-6 text-xl font-semibold text-white ">
+                {film.title}
+              </span>
+              <div className="flex flex-row flex-wrap gap-2">
+                {renderMovieSchedules(film.showtimeList)}
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }
     });
   };
 

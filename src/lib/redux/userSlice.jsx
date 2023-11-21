@@ -1,26 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LOG_IN, LOG_OUT } from "../../constant";
+import { LOG_IN, LOG_OUT, REGISTERED, STAND_BY } from "../../constant";
 
-const userAccount = localStorage.getItem("currentUser");
+const currentUser = localStorage.getItem("currentUser");
 
 const initialState = {
-  accountStatus: userAccount ? LOG_IN : LOG_OUT,
-  account: JSON.parse(userAccount) || {},
+  registerStatus: currentUser ? REGISTERED : STAND_BY,
+  registerAccount: {},
+  userStatus: currentUser ? LOG_IN : LOG_OUT,
+  userAccount: JSON.parse(currentUser) || {},
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setAccountStatus: (state, action) => {
-      state.accountStatus = action.payload;
+    setRegisterStatus: (state, action) => {
+      state.registerStatus = action.payload;
+    },
+    setRegisterAccount: (state, action) => {
+      state.registerAccount = action.payload;
     },
 
+    setUserStatus: (state, action) => {
+      state.userStatus = action.payload;
+    },
     setUserAccount: (state, action) => {
-      state.account = action.payload;
+      state.userAccount = action.payload;
     },
-
-    resetUser: (state) => initialState,
   },
 });
 

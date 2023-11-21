@@ -1,8 +1,10 @@
 import React from "react";
-// import "../style.css";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
-export default function NowPlayingCard({ imgSrc }) {
+export default function NowPlayingCard({ imgSrc, listType, movieID }) {
+  const navigateTo = useNavigate();
+
   return (
     <div className="card">
       <figure
@@ -22,7 +24,11 @@ export default function NowPlayingCard({ imgSrc }) {
             <button className="px-8 py-4 bg-transparent text-white text-center border-2 border-solid border-white rounded hover:bg-[#ae1f22] hover:border-[#ae1f22] transition-all duration-200">
               Get Tickets
             </button>
-            <button className="px-8 py-4 bg-transparent text-white text-center border-2 border-solid border-white rounded hover:bg-[#ae1f22] hover:border-[#ae1f22] transition-all duration-200">
+            <button
+              onClick={() => {
+                navigateTo(`/detail/${listType}-${movieID}`);
+              }}
+              className="px-8 py-4 bg-transparent text-white text-center border-2 border-solid border-white rounded hover:bg-[#ae1f22] hover:border-[#ae1f22] transition-all duration-200">
               Detail
             </button>
           </div>

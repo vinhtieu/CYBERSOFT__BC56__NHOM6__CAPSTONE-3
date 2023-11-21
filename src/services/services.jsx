@@ -10,4 +10,7 @@ export const userService = {
   requestLogin: (value) => {
     return userApi.post("/api/QuanLyNguoiDung/DangNhap", value);
   },
+  requestRegister: (value) => {
+    return userApi.post("/api/QuanLyNguoiDung/DangKy", value);
+  },
 };

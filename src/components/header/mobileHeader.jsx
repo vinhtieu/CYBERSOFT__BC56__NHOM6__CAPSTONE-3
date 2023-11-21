@@ -7,11 +7,11 @@ import { LOGGING_OUT, LOG_IN, PAGE, PROCESSING } from "../../constant";
 import { Overlay } from "../../components";
 
 export default function MobileHeader() {
-  const accountStatus = useSelector((state) => state.user.accountStatus);
+  const userStatus = useSelector((state) => state.user.userStatus);
   const isNavMenuOpen = useSelector((state) => state.navMenu.isOpen);
   const activePage = useSelector((state) => state.navMenu.onPage);
   const { loadingOn } = loadingScreenSlice.actions;
-  const { setAccountStatus } = userSlice.actions;
+  const { setUserStatus } = userSlice.actions;
   const { toggleNavMenu, setPage } = navMenuSlice.actions;
   const [isScrolled, setIsScrolled] = useState(false);
   const navigateTo = useNavigate();
@@ -21,7 +21,7 @@ export default function MobileHeader() {
   const handleLogoutUser = () => {
     dispatch(loadingOn());
     setTimeout(() => {
-      dispatch(setAccountStatus(PROCESSING));
+      dispatch(setUserStatus(LOGGING_OUT));
       localStorage.clear();
       sessionStorage.clear();
       navigateTo("/");
@@ -166,7 +166,7 @@ export default function MobileHeader() {
               Promotion
             </div>
             <div className="w-full h-px bg-gray-700"></div>
-            {accountStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
+            {userStatus === LOG_IN ? renderUserNav() : renderLoginNav()}
           </nav>
         </div>
         {/* //Overlay */}

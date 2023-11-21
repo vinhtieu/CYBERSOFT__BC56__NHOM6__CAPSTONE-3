@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cinemaData = sessionStorage.getItem("cinema_data");
 
 const initialState = {
-  isOn: cinemaData ? true : false,
+  isOn: cinemaData ? false : true,
 };
 
 const loadingScreenSlice = createSlice({

@@ -4,10 +4,10 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useDispatch } from "react-redux";
 import { userSlice } from "../../lib/redux";
-import { PROCESSING } from "../../constant";
+import { LOGGING_IN } from "../../constant";
 
 export default function MobileLogin() {
-  const { setUserAccount, setAccountStatus } = userSlice.actions;
+  const { setUserAccount, setUserStatus } = userSlice.actions;
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
@@ -16,7 +16,7 @@ export default function MobileLogin() {
       matKhau: values.password,
     };
 
-    dispatch(setAccountStatus(PROCESSING));
+    dispatch(setUserStatus(LOGGING_IN));
     dispatch(setUserAccount(account));
   };
 

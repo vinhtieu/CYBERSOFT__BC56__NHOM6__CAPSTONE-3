@@ -7,7 +7,7 @@ import { userService } from "../../services";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { LOG_IN, LOG_OUT, PAGE, PROCESSING } from "../../constant";
+import { LOG_IN, LOG_OUT, PAGE, LOGGING_IN } from "../../constant";
 import { navMenuSlice, userSlice } from "../../lib/redux";
 
 const Desktop = ({ children }) => {
@@ -34,7 +34,7 @@ const LoginPage = () => {
   const navigateTo = useNavigate();
 
   useEffect(() => {
-    if (userStatus === PROCESSING) {
+    if (userStatus === LOGGING_IN) {
       const toastId = toast.loading("Checking", {
         style: {
           minWidth: "250px",

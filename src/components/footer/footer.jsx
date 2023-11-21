@@ -7,7 +7,7 @@ export default function Footer() {
   const linkedinIcon = "/assets/img/icons8-linkedin.svg";
 
   return (
-    <footer className="w-full h-auto mt-auto bg-transparent">
+    <footer className="w-full h-auto bg-transparent">
       <div className="w-[90%] py-8 lg:py-10 px-2 mr-auto ml-auto flex flex-col items-center justify-between text-sm sm:text-base md:text-lg 2xl:text-xl text-white cursor-pointer">
         <div className="flex flex-row gap-10 mb-8 lg:gap-16 lg:mb-14">
           <figure className="w-8 h-8 lg:w-10 lg:h-10">

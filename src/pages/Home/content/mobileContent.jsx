@@ -26,7 +26,11 @@ const MobileContent = () => {
       <Carousel className="mb-16">
         {nowPlayingMovieList.map((movie, index) => {
           return (
-            <NowPlayingCard key={index} imgSrc={movie.poster}></NowPlayingCard>
+            <NowPlayingCard
+              key={index}
+              imgSrc={movie.poster}
+              listType="nowPlaying"
+              movieID={movie.movieID}></NowPlayingCard>
           );
         })}
       </Carousel>
@@ -38,8 +42,9 @@ const MobileContent = () => {
           return (
             <ComingSoonCard
               key={index}
-              cusWidth="w-[90%]"
-              imgSrc={movie.poster}></ComingSoonCard>
+              imgSrc={movie.poster}
+              listType="comingSoon"
+              movieID={movie.movieID}></ComingSoonCard>
           );
         })}
       </Carousel>
