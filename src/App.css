@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   font-family: "Lato", "Open Sans", sans-serif;
+  /* outline: 1px solid lightsteelblue; */
 }
 
 body {
@@ -23,11 +24,9 @@ body {
 }
 
 .slick-next {
-  opacity: 50%;
   right: 0vw;
 }
 .slick-prev {
-  opacity: 50%;
   left: 0vw;
 }
 
@@ -51,11 +50,24 @@ body {
   }
 }
 @media screen and (max-width: 665.98px) {
-  .slick-next figure {
-    width: 2rem;
-    height: 2rem;
+  .slick-next {
+    width: 0;
+    height: 0;
+    top: -2.3rem;
+    right: 4.6vw;
   }
+  .slick-prev {
+    width: 0;
+    height: 0;
+    top: -2.3rem;
+    left: 72vw;
+  }
+
+  .slick-next figure,
   .slick-prev figure {
+    border: 2px solid white;
+    border-radius: 100%;
+    padding: 8px;
     width: 2rem;
     height: 2rem;
   }

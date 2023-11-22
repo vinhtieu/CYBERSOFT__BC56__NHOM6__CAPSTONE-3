@@ -8,6 +8,7 @@ import {
   PromotionPage,
   RegisterPage,
   DetailPage,
+  BookingPage,
 } from "./pages";
 import Layout from "./layout";
 import { Toaster } from "react-hot-toast";
@@ -48,6 +49,14 @@ function App() {
             element={
               <Layout>
                 <DetailPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/booking/:id"
+            element={
+              <Layout>
+                <BookingPage />
               </Layout>
             }
           />

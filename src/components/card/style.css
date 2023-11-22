@@ -35,3 +35,11 @@
     @apply w-[60%] px-4 py-6 leading-4;
   }
 }
+@media screen and (max-width: 665.98px) {
+  .detail {
+    @apply text-base;
+  }
+  .detail button {
+    @apply w-[75%] px-3 py-6 leading-4;
+  }
+}

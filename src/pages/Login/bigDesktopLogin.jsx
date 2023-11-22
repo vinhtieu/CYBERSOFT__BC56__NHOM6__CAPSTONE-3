@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { userSlice } from "../../lib/redux";
 import { useNavigate } from "react-router-dom";
 
-export default function DesktopLogin() {
+export default function BigDesktopLogin() {
   const { setUserAccount, setUserStatus } = userSlice.actions;
   const navigateTo = useNavigate();
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function DesktopLogin() {
       <div className="relative w-screen h-screen">
         <Overlay />
         <div className="absolute z-10 flex flex-col items-center justify-start w-[26rem] transition-all p-6 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md h-2/3 top-1/2 left-1/2">
-          <span className="block mt-4 mb-16 text-5xl font-medium text-black">
+          <span className="block mt-8 mb-16 text-5xl font-medium text-black">
             Login
           </span>
           <Form

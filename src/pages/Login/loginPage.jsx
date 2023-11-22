@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
+import BigDesktopLogin from "./bigDesktopLogin";
 import DesktopLogin from "./desktopLogin";
 import TabletLogin from "./tabletLogin";
 import MobileLogin from "./mobileLogin";
@@ -10,8 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { LOG_IN, LOG_OUT, PAGE, LOGGING_IN } from "../../constant";
 import { navMenuSlice, userSlice } from "../../lib/redux";
 
+const BigDesktop = ({ children }) => {
+  const isBigDesktop = useMediaQuery({ minWidth: 1150 });
+  return isBigDesktop ? children : null;
+};
 const Desktop = ({ children }) => {
-  const isDesktop = useMediaQuery({ minWidth: 940 });
+  const isDesktop = useMediaQuery({ minWidth: 940, maxWidth: 1149.98 });
   return isDesktop ? children : null;
 };
 
@@ -71,6 +76,9 @@ const LoginPage = () => {
 
   return (
     <>
+      <BigDesktop>
+        <BigDesktopLogin />
+      </BigDesktop>
       <Desktop>
         <DesktopLogin />
       </Desktop>

@@ -13,16 +13,16 @@ export default function TabletShowtimes({ list }) {
 
   useEffect(() => {
     if (list.length > 0)
-      setShowtimesList(renderShowtimesListById(DEFAULT_CINEMA_ID));
+      setShowtimesList(renderShowtimesListByCinema(DEFAULT_CINEMA_ID));
     setCinemaName(DEFAULT_CINEMA_NAME);
   }, []);
 
   const onClick = ({ item, key }) => {
     setCinemaName(item.props.children[0][1].props.children);
-    setShowtimesList(renderShowtimesListById(key));
+    setShowtimesList(renderShowtimesListByCinema(key));
   };
 
-  const renderDropdownItems = (data) => {
+  const getCinemaBranches = (data) => {
     return data.map((cinema) => {
       return {
         key: cinema.cinemaID,
@@ -37,7 +37,7 @@ export default function TabletShowtimes({ list }) {
     });
   };
 
-  const getMovieListById = (id) => {
+  const getMovieListByBranch = (id) => {
     let movies;
 
     list.forEach((cinema) => {
@@ -61,41 +61,43 @@ export default function TabletShowtimes({ list }) {
     });
   };
 
-  const renderShowtimesListById = (key) => {
-    const movieList = getMovieListById(key);
+  const renderShowtimesListByCinema = (key) => {
+    const movieList = getMovieListByBranch(key);
     return movieList.map((film) => {
-      return (
-        <div
-          key={film.movieID}
-          className="grid w-full h-auto  grid-cols-[12rem,1fr] gap-8 py-4 ">
-          <figure className="w-48 min-w-[28px] aspect-[11/17]">
-            <img
-              className="object-cover w-full h-full"
-              src={film.poster}
-              alt={film.title}
-              onError={(e) => {
-                if (isImgError) {
-                  setIsImgError(false);
-                  e.target.onerror = null;
-                  e.target.src = FALLBACK_IMG;
-                }
-              }}
-            />
-          </figure>
-          <div className="">
-            <span className="block mb-6 text-xl font-semibold text-white ">
-              {film.title}
-            </span>
-            <div className="flex flex-row flex-wrap gap-2">
-              {getMovieSchedules(film.showtimeList)}
+      if (film.nowPlaying === true) {
+        return (
+          <div
+            key={film.movieID}
+            className="grid w-full h-auto  grid-cols-[12rem,1fr] gap-8 py-4 ">
+            <figure className="w-48 min-w-[28px] aspect-[11/17]">
+              <img
+                className="object-cover w-full h-full"
+                src={film.poster}
+                alt={film.title}
+                onError={(e) => {
+                  if (isImgError) {
+                    setIsImgError(false);
+                    e.target.onerror = null;
+                    e.target.src = FALLBACK_IMG;
+                  }
+                }}
+              />
+            </figure>
+            <div className="">
+              <span className="block mb-6 text-xl font-semibold text-white ">
+                {film.title}
+              </span>
+              <div className="flex flex-row flex-wrap gap-2">
+                {getMovieSchedules(film.showtimeList)}
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }
     });
   };
 
-  const items = renderDropdownItems(list);
+  const items = getCinemaBranches(list);
 
   return (
     <>

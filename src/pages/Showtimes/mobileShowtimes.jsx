@@ -22,7 +22,7 @@ export default function TabletShowtimes({ list }) {
     setShowtimesList(renderShowtimesListById(key));
   };
 
-  const renderDropdownItems = (data) => {
+  const getCinemaBranches = (data) => {
     return data.map((cinema) => {
       return {
         key: cinema.cinemaID,
@@ -37,7 +37,7 @@ export default function TabletShowtimes({ list }) {
     });
   };
 
-  const getMovieListById = (id) => {
+  const getMovieListByBranches = (id) => {
     let movies;
 
     list.forEach((cinema) => {
@@ -62,40 +62,42 @@ export default function TabletShowtimes({ list }) {
   };
 
   const renderShowtimesListById = (key) => {
-    const movieList = getMovieListById(key);
+    const movieList = getMovieListByBranches(key);
     return movieList.map((film) => {
-      return (
-        <div
-          key={film.movieID}
-          className="w-full h-auto  grid-cols-[12rem,1fr] gap-6 py-4 flex flex-col">
-          <figure className="w-48 min-w-[28px] aspect-[11/17] block mb-0">
-            <img
-              className="object-cover w-full h-full"
-              src={film.poster}
-              alt={film.title}
-              onError={(e) => {
-                if (isImgError) {
-                  setIsImgError(false);
-                  e.target.onerror = null;
-                  e.target.src = FALLBACK_IMG;
-                }
-              }}
-            />
-          </figure>
-          <div className="block">
-            <span className="block mb-8 text-xl font-semibold text-white ">
-              {film.title.toUpperCase()}
-            </span>
-            <div className="flex flex-row flex-wrap gap-2">
-              {getMovieSchedules(film.showtimeList)}
+      {
+        return (
+          <div
+            key={film.movieID}
+            className="w-full h-auto  grid-cols-[12rem,1fr] gap-6 py-4 flex flex-col">
+            <figure className="w-48 min-w-[28px] aspect-[11/17] block mb-0">
+              <img
+                className="object-cover w-full h-full"
+                src={film.poster}
+                alt={film.title}
+                onError={(e) => {
+                  if (isImgError) {
+                    setIsImgError(false);
+                    e.target.onerror = null;
+                    e.target.src = FALLBACK_IMG;
+                  }
+                }}
+              />
+            </figure>
+            <div className="block">
+              <span className="block mb-8 text-xl font-semibold text-white ">
+                {film.title.toUpperCase()}
+              </span>
+              <div className="flex flex-row flex-wrap gap-2">
+                {getMovieSchedules(film.showtimeList)}
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      }
     });
   };
 
-  const items = renderDropdownItems(list);
+  const items = getCinemaBranches(list);
 
   return (
     <>

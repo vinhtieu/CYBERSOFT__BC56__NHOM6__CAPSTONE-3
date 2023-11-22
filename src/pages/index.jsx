@@ -4,3 +4,4 @@ export { default as ShowtimesPage } from "./Showtimes";
 export { default as PromotionPage } from "./Promotion";
 export { default as RegisterPage } from "./Register";
 export { default as DetailPage } from "./Detail";
+export { default as BookingPage } from "./Booking";

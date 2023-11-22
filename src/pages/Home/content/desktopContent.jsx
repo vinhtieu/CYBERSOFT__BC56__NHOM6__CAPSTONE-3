@@ -30,6 +30,7 @@ const DesktopContent = () => {
               key={index}
               imgSrc={movie.poster}
               listType="nowPlaying"
+              movieTitle={movie.title}
               movieID={movie.movieID}></NowPlayingCard>
           );
         })}
@@ -58,9 +59,9 @@ const DesktopContent = () => {
         overlayClassName="fixed inset-0 bg-black bg-opacity-75 z-[110]"
         overlayElement={(props, contentElement) => (
           <div {...props}>
-            <div className="absolute flex flex-row gap-8 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-fit auto">
+            <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-fit ">
               {contentElement}
-              <figure className="w-12 h-12">
+              <figure className="absolute w-8 h-8 -top-10 -right-10">
                 <img
                   className="object-contain w-full h-full cursor-pointer"
                   src="/assets/img/cross.png"

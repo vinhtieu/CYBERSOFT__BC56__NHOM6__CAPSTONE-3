@@ -114,8 +114,8 @@ export default function MobileHeader() {
               className="w-full h-full"
               src={`${
                 isNavMenuOpen
-                  ? "assets/img/cross.png"
-                  : "assets/img/hamburger-icon.svg"
+                  ? "/assets/img/cross.png"
+                  : "/assets/img/hamburger-icon.svg"
               }`}
               alt=""
             />

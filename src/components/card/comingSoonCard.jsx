@@ -25,7 +25,7 @@ export default function ComingSoonCard({ imgSrc, listType, movieID }) {
               onClick={() => {
                 navigateTo(`/detail/${listType}-${movieID}`);
               }}
-              className="px-8 py-4 bg-transparent text-white text-center border-2 border-solid border-white rounded hover:bg-[#ae1f22] hover:border-[#ae1f22] transition-all duration-200">
+              className="px-6 py-2 min-[666px]:px-8 min-[666px]:py-4 bg-transparent text-white text-sm min-[666px]:text-base text-center border-2 border-solid border-white rounded hover:bg-[#ae1f22] hover:border-[#ae1f22] transition-all duration-200">
               Detail
             </button>
           </div>

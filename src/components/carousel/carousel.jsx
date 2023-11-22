@@ -8,7 +8,7 @@ const PrevArrow = forwardRef((props, ref) => {
         ref.current.slickPrev();
       }}
       type="button"
-      className="slick-prev absolute top-[1.5rem] left-[1vw] z-50 group block">
+      className="slick-prev absolute top-[1.5rem] left-[1vw] z-50 group block opacity-50">
       <figure className="absolute left-0 ml-auto mr-auto -translate-y-1/2 w-14 h-14 group-hover:inline-block top-1/2">
         <img
           src="/assets/img/pngaaa.com-3944443.png"
@@ -27,7 +27,7 @@ const NextArrow = forwardRef((props, ref) => {
         ref.current.slickNext();
       }}
       type="button"
-      className="slick-next  absolute top-[1.5rem] right-[1vw] z-50 group block ">
+      className="slick-next  absolute top-[1.5rem] right-[1vw] z-50 group block opacity-50">
       <figure className="absolute right-0 ml-auto mr-auto -translate-y-1/2 w-14 h-14 group-hover:inline-block top-1/2">
         <img
           src="/assets/img/pngaaa.com-3944443.png"
