@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-// import { showtimesSlice } from "../../lib/redux";
 import { FALLBACK_IMG } from "../../constant";
 
 export default function TabletShowtimes({ list }) {
