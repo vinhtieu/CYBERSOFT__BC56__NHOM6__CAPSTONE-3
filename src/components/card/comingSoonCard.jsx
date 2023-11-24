@@ -13,7 +13,6 @@ export default function ComingSoonCard({ imgSrc, listType, movieID }) {
           className="object-cover object-bottom w-full h-full"
           src={imgSrc ? imgSrc : FALLBACK_IMG}
           onError={(e) => {
-            console.log("this src is broken", imgSrc);
             e.target.src = FALLBACK_IMG;
             e.target.onerror = null;
           }}

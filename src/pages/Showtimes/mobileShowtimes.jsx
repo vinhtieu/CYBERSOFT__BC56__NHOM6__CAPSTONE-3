@@ -10,7 +10,6 @@ export default function TabletShowtimes({ list }) {
   const [isImgError, setIsImgError] = useState(true);
   const [showtimesList, setShowtimesList] = useState([]);
   const [cinemaName, setCinemaName] = useState([]);
-
   useEffect(() => {
     if (list.length > 0)
       setShowtimesList(renderShowtimesListById(DEFAULT_CINEMA_ID));

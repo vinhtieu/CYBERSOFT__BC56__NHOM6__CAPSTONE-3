@@ -25,7 +25,6 @@ const BigDesktopContent = () => {
       </div>
       <Carousel className="mb-32">
         {nowPlayingMovieList.map((movie, index) => {
-          console.log(movie.title);
           return (
             <NowPlayingCard
               key={index}

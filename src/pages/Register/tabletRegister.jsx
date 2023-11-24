@@ -21,7 +21,6 @@ export default function TabletRegister() {
       hoTen: values.fullName,
     };
 
-    console.log(accountRegister);
     dispatch(setRegisterStatus(PROCESSING));
     dispatch(setRegisterAccount(accountRegister));
   };

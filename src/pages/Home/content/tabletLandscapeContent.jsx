@@ -51,7 +51,6 @@ const TabletLandscapeContent = () => {
       <ReactModal
         isOpen={videoPlayOpen}
         onRequestClose={() => {
-          console.log("request closing modal");
           dispatch(closeVideoPlayer());
           dispatch(pauseVideo());
         }}

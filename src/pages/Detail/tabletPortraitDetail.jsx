@@ -78,7 +78,6 @@ export default function TabletPortraitDetail() {
   const renderMovieDetail = () => {
     const [listType, movieId] = getIdAndType();
     const movieDetail = getMovieById(listType, movieId);
-    console.log(movieDetail);
     return (
       <div className="w-[90%] mr-auto ml-auto py-6">
         <div className="flex flex-col items-center justify-center">

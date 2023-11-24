@@ -78,7 +78,6 @@ export default function DesktopDetail() {
   const renderMovieDetail = () => {
     const [listType, movieId] = getIdAndType();
     const movieDetail = getMovieById(listType, movieId);
-    console.log(movieDetail);
     return (
       <div className="w-[80%] mr-auto ml-auto py-10">
         <div className="flex flex-row ">

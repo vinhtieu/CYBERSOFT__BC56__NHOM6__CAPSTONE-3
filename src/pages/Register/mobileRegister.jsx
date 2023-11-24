@@ -19,7 +19,6 @@ export default function MobileRegister() {
       email: values.email,
     };
 
-    console.log(accountRegister);
     dispatch(setRegisterStatus(PROCESSING));
     dispatch(setRegisterAccount(accountRegister));
   };
